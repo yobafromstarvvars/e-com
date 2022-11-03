@@ -1,0 +1,99 @@
+.fa-solid, .fas {
+font-family: "Font Awesome 6 Free";
+font-weight: 900;
+}
+all.min.css:6:783.fa-lg {
+font-size: 1.25em;
+line-height: .05em;
+vertical-align: -.075em;
+}
+all.min.css:6:94.fa, .fa-brands, .fa-duotone, .fa-light, .fa-regular, .fa-solid, .fa-thin, .fab, .fad, .fal, .far, .fas, .fat {
+-moz-osx-font-smoothing: grayscale;
+-webkit-font-smoothing: antialiased;
+display: var(--fa-display,inline-block);
+font-style: normal;
+font-variant: normal;
+line-height: 1;
+text-rendering: auto;
+}
+core.min.css:1:1522*, :after, :before {
+box-sizing: border-box;
+}
+i, cite, em, var, address, dfn {
+font-style: italic;
+}
+::before
+all.min.css:6:41775.fa-home-alt:before, .fa-home-lg-alt:before, .fa-home:before, .fa-house:before {
+content: "\f015";
+}
+core.min.css:1:1522*, :after, :before {
+box-sizing: border-box;
+}
+::after
+core.min.css:1:1522*, :after, :before {
+box-sizing: border-box;
+}
+a.nav-link
+core.min.css:8:62869.navbar-light .navbar-nav .nav-link {
+color: rgba(0,0,0,.55);
+}
+core.min.css:8:54658.nav-link {
+color: #3b71ca;
+}
+core.min.css:1:3298a {
+color: #3b71ca;
+}
+
+a:any-link {
+color: -webkit-link;
+cursor: auto;
+}
+li.nav-item.me-3.me-lg-1.active
+li {
+text-align: match-parent;
+}
+
+core.min.css:8:56566.navbar-nav {
+list-style: none;
+}
+
+ul, menu, dir {
+list-style-type: disc;
+}
+
+core.min.css:8:113737.bg-light {
+}
+
+core.min.css:8:114050.bg-white {
+}
+
+core.min.css:8:2558.row {
+}
+
+core.min.css:8:163214body {
+font-family: var(--mdb-font-roboto);
+line-height: 1.6;
+color: #4f4f4f;
+}
+
+core.min.css:1:1636body {
+font-family: var(--mdb-body-font-family);
+font-size: var(--mdb-body-font-size);
+font-weight: var(--mdb-body-font-weight);
+line-height: var(--mdb-body-line-height);
+color: var(--mdb-body-color);
+text-align: var(--mdb-body-text-align);
+-webkit-text-size-adjust: 100%;
+}
+
+core.min.css:8:163151:root {
+--mdb-font-roboto: "Roboto",sans-serif;
+}
+
+core.min.css:1:root {
+--mdb-body-font-family: var(--mdb-font-roboto);
+--mdb-body-font-size: 1rem;
+--mdb-body-font-weight: 400;
+--mdb-body-line-height: 1.6;
+--mdb-body-color: #4f4f4f;
+}
