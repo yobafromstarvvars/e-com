@@ -1,0 +1,81 @@
+.carousel {
+    position: relative;
+    margin: auto;
+    margin-left: $sidenav-width; /* Same as the width of the sidenav */
+    height: 21em;
+    background-color: $bg-loading-cover; 
+    overflow: hidden;
+
+    .carousel-indicators {
+        padding-bottom: 1rem;
+
+        .carousel-nav-button {
+            box-shadow: 2px 2px 5px $txt-primary-inverse;
+            height: 20px;
+            width: 30px;
+            border: none;
+            border-radius: 999px;
+        }
+    }
+
+    
+
+    .carousel-inner {
+        height: 21em;
+
+        .carousel-slide-img {
+            object-fit: cover;
+            min-height: 21em;
+        }
+
+        .carousel-caption {
+            top: 0;
+            right: 0;
+            margin-right: 0;
+            margin-left: auto;
+            padding: 2rem;
+            padding-right: 4rem;
+            text-align: right;
+            width: 60%;
+            
+
+            & h5 {
+                font-size: 3rem !important;
+                font-weight: 600;
+                text-shadow: 2px 2px 5px $txt-primary-inverse;
+            }
+
+            & p {
+                font-size: 1.3rem !important;
+                text-shadow: 2px 2px 5px $txt-primary-inverse;
+            }
+
+            .carousel-gotostore {
+                position: absolute;
+                display: block !important;
+                text-decoration: none;
+                background-color: $bg-goto-storepage-button;
+                color: $txt-goto-storepage-button;
+                border: 2px solid $outline-goto-storepage-button;
+                font-size: 1.1rem;
+                font-weight: 600 !important;
+                right: 0;
+                margin-right: 4rem;
+                margin-top: 1.5rem;
+                padding: 1rem 3rem;
+                border-radius: .4rem;
+            }
+        }
+    }
+
+    .carousel-control-prev, .carousel-control-next {
+        width: 4rem !important;
+        transition: background-color .3s ease, opacity .3s ease;
+
+        &:hover, &:hover {
+            background-color: $bg-primary-button-c;
+
+        }
+    }
+}
+
