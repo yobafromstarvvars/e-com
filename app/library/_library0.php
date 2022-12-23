@@ -1,5 +1,5 @@
 <div class="library-0-container">
-    <img class="signed-out-image" src="<?php echo $libraryLoggedout ?>" alt="Logged out"/>
+    <img class="signed-out-image" src="<?php echo $libraryLoggedout ?>" alt="Logged out image"/>
     <h4>Sign in to access comics that you’ve bought or saved</h4>
     <div class="signedout-buttons-container">
         <a href="<?php echo $gotoLogin?>" class="login-button">Log In</a>
