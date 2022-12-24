@@ -70,7 +70,7 @@
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.87);
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
@@ -124,7 +124,7 @@
 .add-to-library-button {
   border: none;
   border-radius: 5px;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.87);
   background-color: rgba(0, 0, 0, 0.85);
   box-shadow: 0px 0px 5px 0px #303030;
   padding: 0.4rem;
@@ -182,77 +182,85 @@ html {
 
 #sidenav {
   height: 100%;
-  width: 225px;
+  width: 71px;
   position: fixed;
-  z-index: 1;
-  top: 0;
+  z-index: 999;
+  top: 3.7rem;
   left: 0;
   background-color: #212121;
   overflow-x: hidden;
-  padding-top: 20px;
-  vertical-align: middle;
+  padding: 0 3px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
-#sidenav .active {
+#sidenav .sidenav-main {
+  color: #aaa;
+}
+#sidenav .sidenav-main .active {
   background-color: #383838;
+  color: rgba(255, 255, 255, 0.87);
 }
-#sidenav .active:hover {
+#sidenav .sidenav-main .active:hover {
   background-color: #505050;
 }
-#sidenav hr {
+#sidenav .sidenav-main hr {
   color: #696969 !important;
+  width: 70%;
+  margin: 10px auto;
 }
-#sidenav a {
-  padding: 8px 8px 8px 1.5rem;
+#sidenav .sidenav-main a {
   text-decoration: none;
   width: 100%;
-  color: #ffffff;
-  display: flex;
+  color: inherit;
+  display: block;
   align-items: center;
-  font-size: 1.2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border-radius: 20%;
+  padding: 15px 0;
+  margin: 1px 0;
+  line-height: 1em;
 }
-#sidenav a:hover {
+#sidenav .sidenav-main a:hover {
   background-color: #383838;
 }
-#sidenav span {
-  font-size: 2rem;
-  margin-right: 1.5rem;
-}
-#sidenav #logo {
-  width: 100%;
-  text-align: center;
-  padding: 0;
-  margin-bottom: 2em;
-  display: block;
-  background-color: transparent !important;
-}
-#sidenav #logo:hover {
-  background-color: transparent;
-}
-#sidenav #logo #logo-img {
-  height: 100px;
+#sidenav .sidenav-main a span {
+  font-size: 1.5rem;
+  color: inherit;
 }
 #sidenav .sidenav-footer {
-  padding-left: 1.5rem;
+  position: relative;
+  margin-top: auto;
+  margin-bottom: 3.7rem;
+  padding: 0 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
 }
 #sidenav .sidenav-footer * {
   color: #717171;
 }
 #sidenav .sidenav-footer a {
-  display: inline;
-  text-align: left;
-  padding: 0;
-  margin-right: 1.5rem;
-  line-height: 3rem;
-  font-size: 1em;
+  width: 50px;
+  height: 100%;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  text-decoration: none;
+  font-size: 0.9rem;
 }
-#sidenav .sidenav-footer a:hover {
-  background-color: transparent;
-  color: #aaa;
+#sidenav .sidenav-footer a span {
+  font-size: 1.9rem;
+  transition: color 150ms;
 }
-#sidenav .sidenav-footer span {
-  margin-top: 0.5rem;
-  display: block;
-  font-size: 1em;
+#sidenav .sidenav-footer a:hover span {
+  color: #51abe4;
 }
 
 /* On smaller screens, where height is less than 450px, 
@@ -291,7 +299,7 @@ change the style of the sidebar (less padding and a smaller font size) */
 }
 
 #main {
-  margin-left: 225px; /* Same as the width of the sidenav */
+  margin-left: 71px; /* Same as the width of the sidenav */
   padding: 0px 10px;
 }
 
@@ -309,12 +317,27 @@ change the style of the sidebar (less padding and a smaller font size) */
   justify-content: space-between;
   align-items: center;
   padding: 0.4rem 1rem 0.4rem 0;
-  margin-left: 225px; /* Same as the width of the sidenav */
+  max-height: 3.75rem;
   background-color: #202020;
+}
+.header #logo {
+  height: 25px;
+  text-align: center;
+  padding: 0;
+  margin-left: 1rem;
+  display: block;
+  background-color: transparent !important;
+}
+.header #logo:hover {
+  background-color: transparent;
+}
+.header #logo #logo-img {
+  height: 25px;
+  width: 116px;
 }
 .header .search-bar {
   flex-grow: 0.7;
-  margin: 0 2rem 0 5rem;
+  margin: 0 9rem 0 12rem;
   display: flex;
   font-size: 1.2em;
 }
@@ -325,23 +348,24 @@ change the style of the sidebar (less padding and a smaller font size) */
   font-size: inherit;
   padding: 0.3em 1em 0.3em 1em;
   border: 1px solid #303030;
-  border-top-right-radius: 0;
+  border-radius: 8px 0 0 8px;
 }
 .header .search-bar .search-input:focus {
   outline: none;
   border: 1px solid #3ea6ff;
 }
 .header .search-bar .search-btn {
-  color: #ffffff;
   background-color: #222222;
   display: flex;
   align-items: center;
   padding: 0 1.25rem;
   border: 1px solid hsl(0deg, 0%, 18.82%);
   border-left: none;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-radius: 0 8px 8px 0;
   cursor: pointer;
+}
+.header .search-bar .search-btn span {
+  color: #aaa;
 }
 .header .search-bar .search-btn:hover {
   background-color: hsl(0deg, 0%, 18.82%);
@@ -375,6 +399,7 @@ change the style of the sidebar (less padding and a smaller font size) */
 }
 .header .menu-icons .menu-cart-btn span {
   transition: color 150ms;
+  color: rgba(255, 255, 255, 0.87);
 }
 .header .menu-icons .menu-cart-btn:hover span {
   color: #34a853;
@@ -387,7 +412,7 @@ change the style of the sidebar (less padding and a smaller font size) */
   flex-wrap: wrap;
   border: 1px solid #3ea6ff;
   padding: 0.5rem 1rem;
-  border-radius: 0.1rem;
+  border-radius: 8px;
   transition: border 150ms;
 }
 .header .menu-icons .menu-account-btn span {
@@ -430,7 +455,7 @@ change the style of the sidebar (less padding and a smaller font size) */
   padding: 0.5rem 2rem;
   border-top: 1px solid #303030;
   border-bottom: 1px solid #303030;
-  margin-left: 225px !important; /* Same as the width of the sidenav */
+  margin-left: 71px !important; /* Same as the width of the sidenav */
   background-color: #202020;
 }
 .filters .filter-section {
@@ -544,7 +569,7 @@ change the style of the sidebar (less padding and a smaller font size) */
   font-weight: bold;
   margin-bottom: 0.5rem;
   text-decoration: none;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.87);
   transition: color 150ms;
 }
 .products .product-section .product-container .product-bottom-section .product-title:hover {
@@ -566,7 +591,7 @@ change the style of the sidebar (less padding and a smaller font size) */
   color: #aaa;
 }
 .products .product-section .product-container .product-bottom-section .product-price {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.87);
 }
 .products .product-section .product-container .product-bottom-section .product-price::before {
   content: "$";
@@ -594,7 +619,7 @@ change the style of the sidebar (less padding and a smaller font size) */
   font-size: 1.5rem;
   font-weight: 400 !important;
   text-decoration: none;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.87);
 }
 .products .product-separated-section .separated-section-expandbtn {
   border: none;
@@ -607,14 +632,14 @@ change the style of the sidebar (less padding and a smaller font size) */
   cursor: pointer;
 }
 .products .product-separated-section .separated-section-expandbtn:hover {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.87);
 }
 
 /* Slideshow container */
 .slideshow-container {
   position: relative;
   margin: auto;
-  margin-left: 225px; /* Same as the width of the sidenav */
+  margin-left: 71px; /* Same as the width of the sidenav */
   height: 21em;
   background-color: #303030;
   /* Hide the images by default */
@@ -635,7 +660,7 @@ change the style of the sidebar (less padding and a smaller font size) */
 }
 .slideshow-container .slideshow-slide .slideshow-text {
   position: absolute;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.87);
   text-shadow: 2px 2px 5px #030303;
   font-size: 1.5rem;
   font-weight: 600;
@@ -738,7 +763,7 @@ change the style of the sidebar (less padding and a smaller font size) */
 .carousel {
   position: relative;
   margin: auto;
-  margin-left: 225px; /* Same as the width of the sidenav */
+  margin-left: 71px; /* Same as the width of the sidenav */
   height: 21em;
   background-color: #303030;
   overflow: hidden;

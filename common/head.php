@@ -19,5 +19,5 @@
         <!-- icon -->
         <link rel="icon" href="<?php echo $linktoIcon ?>" sizes="32x32">
 
-        <title>Music House</title>
+        <title>MusicHouse</title>
     </head>

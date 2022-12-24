@@ -2,7 +2,7 @@
 // THIS FILE CONTAINES ALL VARIABLES USED AS LINKS (should go after path.php)
 
 //images
-$logo = ROOTURL."/assets/img/logo2.png";
+$logo = ROOTURL."/assets/img/logo5.png";
 $libraryEmpty = ROOTURL."/assets/img/library/empty_library.png";
 $libraryLoggedout = ROOTURL."/assets/img/library/library_loggedout.png";
 $imgSlideshow = "http:///unsplash.it/1000/350?gravity=center";

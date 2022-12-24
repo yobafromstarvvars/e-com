@@ -10,10 +10,11 @@ $star-empty: #B59F51;
 $add-to-library-button: #fff;
 $add-to-library-button-hover: #FFF500;
 $cart-icon-hover: #34a853;
+$lang-icon-hover: #51abe4;
 
 
 //
-//BACKGROUND COLOR
+//BACKGROUND COLOR - 121212 recommended
 //
 $bg-content: #181818;           //background of the content section
 $bg-side-panel: #212121;    //background color of side panel
@@ -38,7 +39,7 @@ $bg-goto-storepage-button: #fff;
 //
 //TXT COLOR
 //
-$txt-primary: #ffffff;
+$txt-primary: rgba(255,255,255,.87);
 $txt-primary-inverse: #030303;
 $txt-primary-hover: #dddddd;
 $txt-secondary: #aaa;

@@ -4,13 +4,15 @@
 ?>
     <body>
         <?php
-            require SIDEPANEL;
+            
 
             // Fixed position settings are in _searchbar.scss
             echo '<div class="fixed-at-top">';
                 require SEARCHBAR;       
                 require FILTERSROW;
             echo '</div>';
+
+            require SIDEPANEL;
 
             require CAROUSEL;
             echo '<div id="main">';

@@ -1,15 +1,15 @@
 <div id="sidenav">
-  <a href="<?php echo $gotoHome ?>" id="logo">
-    <img id="logo-img" src="<?php echo $logo ?>" alt="Favorite Papers Logo"/>
-  </a>
-  <a href="<?php echo $gotoHome?>"><span class="material-icons">home</span>Home</a>
-  <a href="<?php echo $gotoLibrary?>"><span class="material-icons">menu_book</span>Library</a>
-  <a href="<?php echo $gotoHistory?>"><span class="material-icons">history</span>History</a>
-  <hr />
+  <div class="sidenav-main">
+    <a href="<?php echo $gotoHome?>"><span class="material-icons">home</span><br>Home</a>
+    <a href="<?php echo $gotoLibrary?>"><span class="material-icons">piano</span><br>Catalog</a>
+    <?php //<a href="<?php echo $gotoHistory?\>"><span class="material-icons">history</span><br>History</a> ?>
+    <hr />
+    <a href="#"><span class="material-icons">place</span><br>Deliver to</a>
+    <a href="<?php echo $gotoAbout?>"><span class="material-icons">info</span><br>About</a>
+  </div>
+  
   <div class="sidenav-footer">
-    <a href="<?php echo $gotoAbout?>">About</a>
-    <a href="<?php echo $gotoCreators?>">Creators</a>
-    <span>© 2021 Favorite Papers</span>
+    <a href="#"><span class="material-icons">language</span></a>
   </div>
 </div>
 

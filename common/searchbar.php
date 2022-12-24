@@ -1,7 +1,10 @@
 <header class="header">
+    <a href="<?php echo $gotoHome ?>" id="logo">
+        <img id="logo-img" src="<?php echo $logo ?>" alt="Music House Logo"/>
+    </a>
     <form action="" class="search-bar">
         <input type="search" class="search-input" placeholder="Search" aria-label="Search" maxlength="100">
-        <button type="submit" class="search-btn" onclick="myFunction()">
+        <button type="submit" class="search-btn">
             <span class="material-icons">search</span>
         </button>
         <button type="button" class="open-filters-btn">
