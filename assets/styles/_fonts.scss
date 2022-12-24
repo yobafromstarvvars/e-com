@@ -1,12 +1,21 @@
+// LOAD FONTS
+@import '_font-falling-sky';
+@import '_font-aegean';
+@import '_font-trueno';
+@import '_font-ekmukta';
+
+// FONT SIZE
 $font-size-primary: 14px;
 $font-size-secondary: 12px;
 $font-size-small: 11px;
 $star-size-primary: 14pt;
-$star-size-comicpage: 16pt;
+$star-size-productpage: 16pt;
 
 *, *::before, *::after {
     box-sizing: border-box;
-    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-family: "EkMukta", Roboto, Arial, Helvetica, sans-serif;
+    font-weight:400;
+    font-style:normal;
     font-size: $font-size-primary;
     color: $txt-primary;
 }

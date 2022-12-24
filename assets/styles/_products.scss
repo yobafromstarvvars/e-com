@@ -1,0 +1,140 @@
+//'_items.scss' CONTAINS STYLES FOR ITEMS (PRODUCTS)
+
+.products {
+    // empty
+
+    .product-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 3rem 2rem;
+        padding: 3rem 0;
+        margin: 0 1.5rem;
+
+        .product-container {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+
+            .cover {
+                position: relative;
+                display: flex;
+                background-color: $bg-loading-cover;
+                transition: top ease 0.2s;
+                top: 0;
+
+                &:hover {
+                    top: -5px;
+                }
+
+                .button-on-image {
+                    position: absolute;
+                    margin: 10px 10px auto auto;
+                    right: 0%;
+                }
+
+                .cover-image {
+                    width: 100%;
+                    height: 100%;
+                    min-width: 120px;
+                    min-height: 180px;
+                    border-top: 1px solid $outline-cover;
+                    border-right: 1px solid $outline-cover;
+                    background-color: $bg-loading-cover;
+                }
+            }
+
+            .product-bottom-section {
+                display: flex;
+                align-items: flex-start;
+                margin-top: 1rem;
+                flex-direction: column;
+
+                .product-title {
+                    font-size: 1.1rem;
+                    font-weight: bold;
+                    margin-bottom: 0.5rem;
+                    text-decoration: none;
+                    color: $txt-primary;
+                    transition: color 150ms;
+
+                    &:hover {
+                        color: $txt-primary-hover;
+                    }
+                }
+
+                .product-star-rating span {
+                    color: $star-full;
+                    font-size: $star-size-primary;
+                }
+
+                .star-half {
+                    color: $star-half;
+                }
+
+                .no-star {
+                    color: $star-empty !important;
+                }
+
+                .product-release-date {
+                    margin-bottom: 0.1rem;
+                    text-decoration: none;
+                    color: $txt-secondary;
+                }
+
+                .product-price {
+                    color: $txt-primary;
+
+                    &::before {
+                        content: "$";
+                    }
+
+                    &::after {
+                        content: "3.99";
+                        font-size: 1.3rem;
+                    }
+
+                    &::first-letter {
+                        font-size: 0.9rem;
+                        opacity: 0.9;
+                        vertical-align: top;
+                    }
+                }
+            }
+        }
+    }
+
+    .product-separated-section {
+        $newreleases-outline-width: 6px;
+
+        border-top: $newreleases-outline-width solid $separator;
+        border-bottom: $newreleases-outline-width solid $separator;
+
+        .separated-section-title {
+            grid-column: 1 / -1;
+            margin: -0.2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 400 !important;
+            text-decoration: none;
+            color: $txt-primary;
+        }
+
+        .separated-section-expandbtn {
+            border: none;
+            background: none;
+            padding: 0;
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: $txt-expandbtn;
+            text-decoration: none;
+            cursor: pointer;
+
+            &:hover {
+                color: $txt-primary;
+            }
+        }
+    }
+}

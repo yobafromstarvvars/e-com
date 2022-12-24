@@ -5,6 +5,7 @@
     height: 21em;
     background-color: $bg-loading-cover; 
     overflow: hidden;
+    
 
     .carousel-indicators {
         padding-bottom: 1rem;
@@ -15,6 +16,7 @@
             width: 30px;
             border: none;
             border-radius: 999px;
+            z-index: $carousel-priority;
         }
     }
 
@@ -71,6 +73,10 @@
     .carousel-control-prev, .carousel-control-next {
         width: 4rem !important;
         transition: background-color .3s ease, opacity .3s ease;
+        
+        & span {
+            z-index: $carousel-priority;
+        }
 
         &:hover, &:hover {
             background-color: $bg-primary-button-c;

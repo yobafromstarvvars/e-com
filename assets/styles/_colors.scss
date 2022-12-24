@@ -22,8 +22,8 @@ $bg-side-panel-button-active-hover: #505050;
 $bg-top-panel: #202020;         //background color of top panel
 $bg-loading-cover: #303030;     //color while cover is loading #8a8a8a
 $bg-search: #121212; 
-$bg-search-legacy-button: hsla(0, 0%, 100%, 0.08);
-$bg-search-legacy-button-hover: hsla(0, 0%, 100%, 0.10);
+$bg-search-legacy-button: #222222; //old: hsla(0, 0%, 100%, 0.041);
+$bg-search-legacy-button-hover: hsl(0, 0%, 18.82%);
 $bg-primary-button-a: rgba(0,0,0,.85);  //black transparent
 $bg-primary-button-b: rgba(0,0,0, 1);      //black
 $bg-primary-button-c: rgba(0,0,0,.20);  //a bit darker

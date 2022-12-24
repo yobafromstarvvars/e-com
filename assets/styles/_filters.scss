@@ -1,5 +1,12 @@
+// Filters are a part of search bar. Fixed position settings are in _searchbar.scss
+
 .filters {
-    display: flex;
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+
+
+    //display: flex;
     flex-direction: column;
     padding: .5rem 2rem;
     border-top: 1px solid $separator;

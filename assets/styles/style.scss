@@ -1,17 +1,21 @@
+// config
 @import './colors';
-@import './fonts';
-@import './btns';
-@import './body';
-@import './sidepanel';
-@import './footer';
-@import './main';
-@import './searchbar';
-@import './filters';
-@import './comics';
+@import './fonts'; //includes imports of scss files
+@import './overlays';
 
-//home
-@import './slideshow';
-@import './carousel';
+// elements
+@import './btns'; 
+@import './body'; 
+@import './sidepanel'; 
+@import './footer'; 
+@import './main'; 
+@import './searchbar'; 
+@import './filters'; 
+@import './products'; 
 
-//library
+// home
+@import './slideshow'; 
+@import './carousel'; 
+
+// library
 @import './library0';

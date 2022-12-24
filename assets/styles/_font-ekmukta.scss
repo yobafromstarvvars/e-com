@@ -1,0 +1,26 @@
+// EkMukta
+// normal: regular, light, bold
+
+//normal - regular
+@font-face {
+    font-family: "EkMukta";
+    src: url(../fonts/EkMuktaRegular-mOLv.ttf) format("truetype");
+    font-style:normal;
+    font-weight: 400;
+}
+
+//normal - light
+@font-face {
+    font-family: "EkMukta";
+    src: url(../fonts/EkMuktaLight-wO19.ttf) format("truetype");
+    font-style:normal;
+    font-weight:100;
+}
+
+//normal - bold
+@font-face {
+    font-family: "EkMukta";
+    src: url(../fonts/EkMuktaBold-Kw7e.ttf) format("truetype");
+    font-style:normal;
+    font-weight: 700;
+}

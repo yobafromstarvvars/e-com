@@ -1,0 +1,52 @@
+// FALLING SKY
+// normal: regular, light, bold
+// oblique: regular, light, bold 
+
+//normal - regular
+@font-face {
+    font-family: "Falling Sky";
+    src: url(../fonts/FallingSky-JKwK.otf) format("opentype");
+    font-style:normal;
+    font-weight: normal;
+}
+
+//normal - light
+@font-face {
+    font-family: "Falling Sky";
+    src: url(../fonts/FallingSkyLight-K2EX.otf) format("opentype");
+    font-style:normal;
+    font-weight:lighter;
+}
+
+//normal - bold
+@font-face {
+    font-family: "Falling Sky";
+    src: url(../fonts/FallingSkyBold-zemL.otf) format("opentype");
+    font-style:normal;
+    font-weight:bold;
+}
+
+//oblique - regular
+@font-face {
+    font-family: "Falling Sky";
+    src: url(../fonts/FallingSkyOblique-n5XV.otf) format("opentype");
+    font-style:oblique;
+    font-weight:normal;
+}
+
+//oblique - lighter
+@font-face {
+    font-family: "Falling Sky";
+    src: url(../fonts/FallingSkyLightOblique-2q3o.otf) format("opentype");
+    font-style:oblique;
+    font-weight:lighter;
+}
+
+//oblique - bold
+@font-face {
+    font-family: "Falling Sky";
+    src: url(../fonts/FallingSkyBoldOblique-5zmv.otf) format("opentype");
+    font-style:oblique;
+    font-weight:bold;
+}
+

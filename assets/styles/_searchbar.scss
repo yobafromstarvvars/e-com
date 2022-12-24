@@ -1,10 +1,21 @@
+.fixed-at-top {
+    position:fixed;
+    width:100%;
+    top:0;
+    overflow:hidden;
+    display:block;
+    z-index: $top-panel-priority;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: .5rem 1rem .5rem 0;
+    padding: .4rem 1rem .4rem 0;
     margin-left: $sidenav-width; /* Same as the width of the sidenav */
-    background-color: $bg-top-panel; 
+    background-color: $bg-top-panel;
+    // Fix at the top of a page
+    
 
     .search-bar {
         flex-grow: .7;
@@ -17,7 +28,7 @@
             background-color: $bg-search;
             width: 100%;
             font-size: inherit;
-            padding: .6em 1em .6em 1em;
+            padding: .3em 1em .3em 1em;
             border: 1px solid $outline-search;
             border-top-right-radius: 0;
 
@@ -43,6 +54,19 @@
                 background-color: $bg-search-legacy-button-hover;
             }
         }
+
+        .open-filters-btn {
+            background-color: $bg-top-panel;
+            border: none;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            margin-left:1rem;
+
+            & span {
+                color: $txt-secondary;
+            }
+        }
     }
 
     .menu-icons {
@@ -51,14 +75,17 @@
         grid-template-columns: repeat(2, auto);
         align-items: center;
 
+        .menu-btn {
+            text-decoration: none;
+            display: flex;
+        }
+
         .menu-cart-btn {
             //width: 2rem;
             background-color: $bg-content;
             text-align: center;
             padding: .6rem .7rem;
             border-radius: 420px;
-            display: flex;
-            text-decoration: none;
 
             & span {
                 transition: color 150ms;
@@ -72,8 +99,6 @@
         }
         
         .menu-account-btn {
-            text-decoration: none;
-            display: flex;
             align-items: center;
             width: fit-content;
             flex-wrap: wrap;
@@ -105,3 +130,21 @@
         }
     }    
 }
+
+.collapsible {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+
+    .active, .collapsible:hover {
+        background-color: #ccc;
+      }
+}
+
+

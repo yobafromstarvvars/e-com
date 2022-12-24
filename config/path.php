@@ -1,10 +1,9 @@
-<!-- Initialized in index.html -->
 <?php
+// CONTAINS CONSTANTS OF PATHS TO WEBSITE FILES (CSS, JS PATHS ARE IN links.php)
+
     // Initialize the php file
     define('ROOTPATH', dirname(__DIR__));
     define('ROOTURL', '/root');
-
-
 
     //common
     define ('SIDEPANEL',    realpath(ROOTPATH.'/common/sidepanel.php'));
@@ -16,7 +15,7 @@
     //temps
     define ('CAROUSELTEMP', realpath(ROOTPATH.'/app/index/_carouseltemp.php'));
     define ('FILTER',       realpath(ROOTPATH.'/common/_filtertemp.php'));
-    define ('COMICS',       realpath(ROOTPATH.'/common/_comictemp.php'));
+    define ('PRODUCTS',     realpath(ROOTPATH.'/common/_producttemp.php'));
     define ('SLIDE',        realpath(ROOTPATH.'/app/index/_slidetemp.php'));
 
     //help files
