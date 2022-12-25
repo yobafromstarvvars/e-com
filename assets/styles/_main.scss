@@ -1,7 +1,7 @@
-//'MAIN' IS EVERYTHING BUT SIDE AND TOP PANELS
+//'MAIN' IS EVERYTHING BUT SIDE AND TOP PANELS AND CAROUSEL IN index.html
 
 
 #main {
     margin-left: $sidenav-width; /* Same as the width of the sidenav */
-    padding: 0px 10px;
+    padding-top: 3.5rem; // Same as the width of the searchbar
   }

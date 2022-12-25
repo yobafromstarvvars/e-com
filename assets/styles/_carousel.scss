@@ -1,11 +1,9 @@
 .carousel {
     position: relative;
     margin: auto;
-    margin-left: $sidenav-width; /* Same as the width of the sidenav */
     height: 21em;
     background-color: $bg-loading-cover; 
     overflow: hidden;
-    
 
     .carousel-indicators {
         padding-bottom: 1rem;

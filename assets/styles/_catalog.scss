@@ -1,0 +1,279 @@
+// THIS FILE STYLES THE CATALOG PAGE
+
+// A row with categories
+.cat-categories {
+    $cat-categories-border-radius: 10px;
+    margin-left: 0.5rem;
+    margin-bottom: 1rem;
+    .cat-categories-category {
+        height: fit-content;
+        width: fit-content;
+        font-weight: 400;
+        align-items: center;
+        display: inline-flex;
+        border-radius: $cat-categories-border-radius;
+        border: 1px solid $outline-categories-button;
+        background-color: $bg-categories-button;
+        padding: 0.7rem 1rem;
+        margin: 3px 1px;
+        cursor: pointer;
+        text-decoration: none;
+        color: $txt-primary;
+
+        &:hover {
+            background-color: $bg-categories-button-hover;
+            border: 1px solid $outline-categories-button-hover;
+        }
+
+        .category-icon {
+            margin-right: 5px;
+        }
+    }
+}
+
+// Categories in the main page of catalog
+.cat-category-section {
+    margin: 0.5rem;
+    margin-bottom: 4rem;
+    $cat-category-heading-border-radius: 10px;
+
+    .cat-category-heading {
+        width: 100%;
+        height: 70px;
+        border-radius: $cat-category-heading-border-radius;
+        border-top: 5px solid $outline-category;
+        background-image: url("../img/catalog/instruments-category.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        .cat-category-heading-title {
+            height: 100%;
+            width: 100%;
+            font-size: 40px;
+            font-weight: 700;
+            align-items: center;
+            display: flex;
+            border-radius: $cat-category-heading-border-radius;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-left: 2rem;
+            cursor: pointer;
+            text-decoration: none;
+            color: $txt-primary;
+        }
+    }
+
+    .cat-category-content {
+        $cat-category-subcategory-border-radius: 10px;
+        margin-top: 0.8rem;
+
+        .cat-category-subcategory {
+            display: inline-block;
+            width: fit-content;
+            height: fit-content;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            border-radius: $cat-category-subcategory-border-radius;
+            background-image: url("../img/catalog/guitar-category.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+
+            .cat-category-subcategory-title {
+                color: $txt-primary;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: rgba(0, 0, 0, 0.5);
+                border-radius: $cat-category-subcategory-border-radius;
+                text-decoration: none;
+                font-size: 18px;
+                font-weight: 700;
+                padding: 1.8rem 3rem;
+            }
+        }
+    }
+}
+
+// Subcatalog (e.g. instruments -> guitars)
+.cat-subcat-section {
+    margin: 0.5rem;
+    //margin-bottom:4rem;
+    $cat-category-heading-border-radius: 10px;
+
+    .cat-subcat-heading {
+        width: 100%;
+        height: 70px;
+        border-radius: $cat-category-heading-border-radius;
+        border-top: 5px solid $outline-category;
+        background-image: url("../img/catalog/guitar-category2.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        .cat-subcat-heading-title {
+            height: 100%;
+            width: 100%;
+            font-size: 40px;
+            font-weight: 700;
+            align-items: center;
+            display: flex;
+            border-radius: $cat-category-heading-border-radius;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-left: 2rem;
+            cursor: pointer;
+            text-decoration: none;
+            color: $txt-primary;
+        }
+    }
+    .cat-subcat-content {
+        $cat-category-subcategory-border-radius: 10px;
+        margin-top: 0.8rem;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1rem 5px;
+        padding: 1rem 0;
+        margin: 0 2.5rem 0 0.5rem;
+
+        .cat-subcat-sub {
+            color: $txt-primary-inverse;
+            width: 300px;
+            height: fit-content;
+            display: inline-flex;
+            //white-space: nowrap;
+            //justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+            background-color: #fff;
+            border-radius: $cat-category-subcategory-border-radius;
+            text-decoration: none;
+            font-size: inherit;
+            font-weight: 700;
+            padding: 0.5rem 0.6rem;
+            padding-left: 0.4rem;
+
+            .cat-subcat-sub-img {
+                height: 50px;
+                //overflow:hidden;
+                object-fit: contain;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+// Sub sub catalog (e.g. instruments -> guitars -> electro guitars)
+.cat-ss-section {
+    margin: 0.5rem;
+    //margin-bottom:4rem;
+    $cat-category-heading-border-radius: 10px;
+
+    .cat-ss-heading {
+        width: 100%;
+        height: 70px;
+        border-radius: $cat-category-heading-border-radius;
+        border-top: 5px solid $outline-category;
+        background-image: url("../img/catalog/guitar-category2.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        .cat-ss-heading-title {
+            height: 100%;
+            width: 100%;
+            font-size: 40px;
+            font-weight: 700;
+            align-items: center;
+            display: flex;
+            border-radius: $cat-category-heading-border-radius;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-left: 2rem;
+            cursor: pointer;
+            text-decoration: none;
+            color: $txt-primary;
+        }
+    }
+
+    // SUB FILTERS - filters in a subcategory
+    .sub-filters-section {
+        width: fit-content;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin: 3rem auto 1rem auto;
+
+        .sub-filters {
+            & * {
+                margin-right:10px;
+            }
+
+
+            .sub-filters-select {
+                width: 200px;
+                text-overflow: ellipsis;
+                color: $txt-primary;
+                background-color: $bg-filter-button;
+                border: 1px solid $outline-filter-button;
+                border-radius: 10px;
+                padding: 5px 10px;
+                cursor: pointer;
+
+                .sub-filters-select-option {
+                }
+            }
+        }
+        .sub-filters-apply-btn {
+            display: block;
+            width: 80px;
+            color: $txt-primary;
+            background-color: $bg-categories-filters-button;
+            border: 1px solid $outline-filter-button;
+            border-radius: 10px;
+            padding: 5px 10px;
+            margin-top: 8px;
+
+            &:hover {
+                background-color: $bg-categories-filters-button-hover;
+            }
+        }
+    }
+
+    .cat-ss-content {
+        $cat-category-subcategory-border-radius: 10px;
+        margin-top: 0.8rem;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1rem 5px;
+        padding: 1rem 0;
+        margin: 0 2.5rem 0 0.5rem;
+
+        .cat-ss-cats {
+            color: $txt-primary-inverse;
+            width: 300px;
+            height: fit-content;
+            display: inline-flex;
+            //white-space: nowrap;
+            //justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+            background-color: #fff;
+            border-radius: $cat-category-subcategory-border-radius;
+            text-decoration: none;
+            font-size: inherit;
+            font-weight: 700;
+            padding: 0.5rem 0.6rem;
+            padding-left: 0.4rem;
+
+            .cat-ss-cats-img {
+                height: 50px;
+                //overflow:hidden;
+                object-fit: contain;
+                margin-right: 10px;
+            }
+        }
+    }
+}

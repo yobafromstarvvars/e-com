@@ -163,7 +163,6 @@ body {
   margin: 0;
   background-color: #181818;
   height: 100%;
-  padding-top: 3rem;
 }
 
 html {
@@ -300,7 +299,7 @@ change the style of the sidebar (less padding and a smaller font size) */
 
 #main {
   margin-left: 71px; /* Same as the width of the sidenav */
-  padding: 0px 10px;
+  padding-top: 3.5rem;
 }
 
 .fixed-at-top {
@@ -524,14 +523,26 @@ change the style of the sidebar (less padding and a smaller font size) */
 .products .product-section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 3rem 2rem;
+  gap: 3rem 3rem;
   padding: 3rem 0;
-  margin: 0 1.5rem;
+  margin: 0 2.5rem 0 1.5rem;
 }
 .products .product-section .product-container {
   display: flex;
   flex-direction: column;
   position: relative;
+  background-color: #383838;
+  width: 180px;
+  height: 24rem;
+  border-radius: 10px;
+  box-shadow: 0 0;
+  top: 0;
+  border: 1px solid #4B4B4B;
+  transition: top 0.1s, box-shadow ease 0.4s;
+}
+.products .product-section .product-container:hover {
+  top: -3px;
+  box-shadow: 0px 2px 7px 3px rgba(255, 255, 255, 0.19);
 }
 .products .product-section .product-container .cover {
   position: relative;
@@ -539,29 +550,52 @@ change the style of the sidebar (less padding and a smaller font size) */
   background-color: #303030;
   transition: top ease 0.2s;
   top: 0;
-}
-.products .product-section .product-container .cover:hover {
-  top: -5px;
+  height: 170px;
+  width: 178px;
+  border-radius: 10px 10px 0 0;
 }
 .products .product-section .product-container .cover .button-on-image {
   position: absolute;
   margin: 10px 10px auto auto;
   right: 0%;
+  display: none;
 }
 .products .product-section .product-container .cover .cover-image {
   width: 100%;
   height: 100%;
   min-width: 120px;
-  min-height: 180px;
+  min-height: 170px;
   border-top: 1px solid #303030;
   border-right: 1px solid #303030;
   background-color: #303030;
 }
+.products .product-section .product-container .cover .background-cover {
+  background-color: #fff;
+  padding: 10px;
+  width: 178px;
+  height: 170px;
+  display: flex;
+  border-radius: 10px 10px 0 0;
+}
+.products .product-section .product-container .cover .background-cover .cover-image2 {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/catalog/guitar/acoustic-guitar/item1.jpeg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 10px 10px 0 0;
+}
 .products .product-section .product-container .product-bottom-section {
   display: flex;
   align-items: flex-start;
-  margin-top: 1rem;
   flex-direction: column;
+  padding: 5px;
+  height: 100%;
+}
+.products .product-section .product-container .product-bottom-section * {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 .products .product-section .product-container .product-bottom-section .product-title {
   font-size: 1.1rem;
@@ -570,6 +604,12 @@ change the style of the sidebar (less padding and a smaller font size) */
   text-decoration: none;
   color: rgba(255, 255, 255, 0.87);
   transition: color 150ms;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .products .product-section .product-container .product-bottom-section .product-title:hover {
   color: #dddddd;
@@ -584,22 +624,34 @@ change the style of the sidebar (less padding and a smaller font size) */
 .products .product-section .product-container .product-bottom-section .no-star {
   color: #B59F51 !important;
 }
-.products .product-section .product-container .product-bottom-section .product-release-date {
-  margin-bottom: 0.1rem;
+.products .product-section .product-container .product-bottom-section .goto-product-category-btn {
+  margin-bottom: 0.8rem;
   text-decoration: none;
-  color: #aaa;
+  color: #0088ff;
+  border: 1px solid #0088ff;
+  border-radius: 10px;
+  transition: border 0.1s;
+  cursor: pointer;
+  padding: 1px 8px;
+  position: relative;
+  margin-top: auto;
+  display: flex;
 }
-.products .product-section .product-container .product-bottom-section .product-price {
-  color: rgba(255, 255, 255, 0.87);
+.products .product-section .product-container .product-bottom-section .goto-product-category-btn:hover {
+  border: 1px solid #3ea6ff;
+  color: #3ea6ff;
 }
 .products .product-section .product-container .product-bottom-section .product-price::before {
   content: "$";
+  color: #ffa4a9;
 }
 .products .product-section .product-container .product-bottom-section .product-price::after {
   content: "3.99";
   font-size: 1.3rem;
+  color: #ffa4a9;
 }
 .products .product-section .product-container .product-bottom-section .product-price::first-letter {
+  color: #ffa4a9;
   font-size: 0.9rem;
   opacity: 0.9;
   vertical-align: top;
@@ -632,6 +684,288 @@ change the style of the sidebar (less padding and a smaller font size) */
 }
 .products .product-separated-section .separated-section-expandbtn:hover {
   color: rgba(255, 255, 255, 0.87);
+}
+
+.cat-categories {
+  margin-left: 0.5rem;
+  margin-bottom: 1rem;
+}
+.cat-categories .cat-categories-category {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-weight: 400;
+  align-items: center;
+  display: inline-flex;
+  border-radius: 10px;
+  border: 1px solid #747474;
+  background-color: #414141;
+  padding: 0.7rem 1rem;
+  margin: 3px 1px;
+  cursor: pointer;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.87);
+}
+.cat-categories .cat-categories-category:hover {
+  background-color: rgb(119, 119, 119);
+  border: 1px solid #ffffff;
+}
+.cat-categories .cat-categories-category .category-icon {
+  margin-right: 5px;
+}
+
+.cat-category-section {
+  margin: 0.5rem;
+  margin-bottom: 4rem;
+}
+.cat-category-section .cat-category-heading {
+  width: 100%;
+  height: 70px;
+  border-radius: 10px;
+  border-top: 5px solid #3ea6ff;
+  background-image: url("../img/catalog/instruments-category.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.cat-category-section .cat-category-heading .cat-category-heading-title {
+  height: 100%;
+  width: 100%;
+  font-size: 40px;
+  font-weight: 700;
+  align-items: center;
+  display: flex;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-left: 2rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.87);
+}
+.cat-category-section .cat-category-content {
+  margin-top: 0.8rem;
+}
+.cat-category-section .cat-category-content .cat-category-subcategory {
+  display: inline-block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  background-image: url("../img/catalog/guitar-category.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.cat-category-section .cat-category-content .cat-category-subcategory .cat-category-subcategory-title {
+  color: rgba(255, 255, 255, 0.87);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 1.8rem 3rem;
+}
+
+.cat-subcat-section {
+  margin: 0.5rem;
+}
+.cat-subcat-section .cat-subcat-heading {
+  width: 100%;
+  height: 70px;
+  border-radius: 10px;
+  border-top: 5px solid #3ea6ff;
+  background-image: url("../img/catalog/guitar-category2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.cat-subcat-section .cat-subcat-heading .cat-subcat-heading-title {
+  height: 100%;
+  width: 100%;
+  font-size: 40px;
+  font-weight: 700;
+  align-items: center;
+  display: flex;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-left: 2rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.87);
+}
+.cat-subcat-section .cat-subcat-content {
+  margin-top: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem 5px;
+  padding: 1rem 0;
+  margin: 0 2.5rem 0 0.5rem;
+}
+.cat-subcat-section .cat-subcat-content .cat-subcat-sub {
+  color: #030303;
+  width: 300px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: inherit;
+  font-weight: 700;
+  padding: 0.5rem 0.6rem;
+  padding-left: 0.4rem;
+}
+.cat-subcat-section .cat-subcat-content .cat-subcat-sub .cat-subcat-sub-img {
+  height: 50px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-right: 10px;
+}
+
+.cat-ss-section {
+  margin: 0.5rem;
+}
+.cat-ss-section .cat-ss-heading {
+  width: 100%;
+  height: 70px;
+  border-radius: 10px;
+  border-top: 5px solid #3ea6ff;
+  background-image: url("../img/catalog/guitar-category2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.cat-ss-section .cat-ss-heading .cat-ss-heading-title {
+  height: 100%;
+  width: 100%;
+  font-size: 40px;
+  font-weight: 700;
+  align-items: center;
+  display: flex;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-left: 2rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.87);
+}
+.cat-ss-section .sub-filters-section {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 3rem auto 1rem auto;
+}
+.cat-ss-section .sub-filters-section .sub-filters * {
+  margin-right: 10px;
+}
+.cat-ss-section .sub-filters-section .sub-filters .sub-filters-select {
+  width: 200px;
+  text-overflow: ellipsis;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #313131;
+  border: 1px solid #4B4B4B;
+  border-radius: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.cat-ss-section .sub-filters-section .sub-filters-apply-btn {
+  display: block;
+  width: 80px;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #414141;
+  border: 1px solid #4B4B4B;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-top: 8px;
+}
+.cat-ss-section .sub-filters-section .sub-filters-apply-btn:hover {
+  background-color: rgb(119, 119, 119);
+}
+.cat-ss-section .cat-ss-content {
+  margin-top: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem 5px;
+  padding: 1rem 0;
+  margin: 0 2.5rem 0 0.5rem;
+}
+.cat-ss-section .cat-ss-content .cat-ss-cats {
+  color: #030303;
+  width: 300px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: inherit;
+  font-weight: 700;
+  padding: 0.5rem 0.6rem;
+  padding-left: 0.4rem;
+}
+.cat-ss-section .cat-ss-content .cat-ss-cats .cat-ss-cats-img {
+  height: 50px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-right: 10px;
+}
+
+.path-row {
+  margin: 1rem 0 3rem 2rem;
+}
+.path-row * {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #212121;
+  border: 1px solid #4B4B4B;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-left: -4px;
+  cursor: pointer;
+}
+.path-row *:hover {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #3a3a3a;
+  border: 1px solid #6d6d6d;
+}
+.path-row .path-root-btn {
+  color: #030303;
+  background-color: #cfcfcf;
+  border: 1px solid #cfcfcf;
+  cursor: default;
+}
+.path-row .path-end-btn {
+  border-radius: 0 10px 10px 0;
 }
 
 /* Slideshow container */
@@ -762,7 +1096,6 @@ change the style of the sidebar (less padding and a smaller font size) */
 .carousel {
   position: relative;
   margin: auto;
-  margin-left: 71px; /* Same as the width of the sidenav */
   height: 21em;
   background-color: #303030;
   overflow: hidden;

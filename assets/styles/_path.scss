@@ -1,0 +1,35 @@
+.path-row {
+    margin: 1rem 0 3rem 2rem;
+
+    & * {
+        color: $txt-primary;
+        background-color: $bg-path-button;
+        border: 1px solid $outline-path-button;
+        text-decoration: none;
+        display:inline-flex;
+        align-items:center;
+        justify-content: center;
+        padding: .2rem 1rem;
+        width:fit-content;
+        height:fit-content;
+        margin-left: -4px;
+        cursor:pointer;
+
+        &:hover {
+            color: $txt-primary;
+            background-color: $bg-path-button-hover;
+            border: 1px solid $outline-path-button-hover;
+        }
+    }
+
+    .path-root-btn {
+        color: $txt-primary-inverse;
+        background-color: $bg-path-button-active;
+        border: 1px solid $outline-path-button-active;
+        cursor:default;
+    }
+
+    .path-end-btn {
+        border-radius: 0 10px 10px 0;
+    }
+}

@@ -1,11 +1,9 @@
 <?php 
-    require "./config/loadConfig.php";
+    require "../../config/loadConfig.php";
     require HEAD;
 ?>
     <body>
         <?php
-            
-
             // Fixed position settings are in _searchbar.scss
             echo '<div class="fixed-at-top">';
                 require SEARCHBAR;       
@@ -14,10 +12,9 @@
 
             require SIDEPANEL;
 
-           // require CAROUSEL;
             echo '<div id="main">';
-            require CAROUSEL;
-                require HOMECONTENT;    
+                require PATH;
+                require CATEGORY;
                 require FOOTER;         
             echo '</div>';
 
@@ -26,4 +23,3 @@
         ?>
     </body>
 </html>
-

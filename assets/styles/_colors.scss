@@ -22,6 +22,7 @@ $bg-side-panel-button-hover: #383838;
 $bg-side-panel-button-active-hover: #505050;
 $bg-top-panel: #202020;         //background color of top panel
 $bg-loading-cover: #303030;     //color while cover is loading #8a8a8a
+$bg-product-info: #383838; //lower part of a product card
 $bg-search: #121212; 
 $bg-search-legacy-button: #222222; //old: hsla(0, 0%, 100%, 0.041);
 $bg-search-legacy-button-hover: hsl(0, 0%, 18.82%);
@@ -29,12 +30,21 @@ $bg-primary-button-a: rgba(0,0,0,.85);  //black transparent
 $bg-primary-button-b: rgba(0,0,0, 1);      //black
 $bg-primary-button-c: rgba(0,0,0,.20);  //a bit darker
 $bg-primary-button-d: #fff;             //plain white
+//filters: search bar + catalog
 $bg-filter-button: #313131;
 $bg-filter-button-hover: #202020;
 $bg-filter-button-active: #fff;
 $bg-goto-storepage-button: #fff;
-
-
+//categories
+$bg-categories-button: #414141;
+$bg-categories-button-hover: rgb(119, 119, 119);
+$bg-categories-filters-button: #414141;
+$bg-categories-filters-button-hover: rgb(119, 119, 119); 
+//path
+$bg-path-button: #212121;
+$bg-path-button-hover: #3a3a3a;
+$bg-path-button-active: #cfcfcf;
+$bg-path-button-active-hover: #ebebeb;
 
 //
 //TXT COLOR
@@ -50,6 +60,9 @@ $txt-signin-topmenu-button: #3ea6ff;
 $txt-signin-topmenu-button-hover: #0088ff;
 $txt-goto-storepage-button: $txt-primary-inverse;
 $txt-footer: rgba(255, 255, 255, 0.1);
+$txt-button-c: #0088ff;
+$txt-button-c-hover: #3ea6ff;
+$txt-product-price: #ffa4a9;
 
 
 //
@@ -60,8 +73,20 @@ $outline-search-active: #3ea6ff;
 $outline-search-legacy-button: hsl(0, 0%, 18.82%);
 $outline-button-a: #fff;
 $outline-button-b: #4B4B4B;
+$outline-button-c: $txt-button-c;
+$outline-button-c-hover: $txt-button-c-hover;
 $outline-cover: #303030;
-$outline-filter-button: #4B4B4B;
+$outline-filter-button: #4B4B4B; //search bar & catalog filter
 $outline-signin-topmenu-button: #3ea6ff;
 $outline-signin-topmenu-button-hover: #0088ff;
 $outline-goto-storepage-button: #3ea6ff;
+$outline-product-card: #4B4B4B; //not used because 
+// Path
+$outline-path-button: #4B4B4B; 
+$outline-path-button-hover: #6d6d6d; 
+$outline-path-button-active: $bg-path-button-active; 
+$outline-path-button-active-hover: #4B4B4B; 
+// Categories
+$outline-category: #3ea6ff;
+$outline-categories-button: #747474;
+$outline-categories-button-hover: #ffffff;

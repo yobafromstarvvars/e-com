@@ -7,6 +7,10 @@ $logo = ROOTURL."/assets/img/logo5.png";
 $libraryEmpty = ROOTURL."/assets/img/library/empty_library.png";
 $libraryLoggedout = ROOTURL."/assets/img/library/library_loggedout.png";
 $imgSlideshow = "http:///unsplash.it/1000/350?gravity=center";
+//images - catalog
+$instruments_section = ROOTURL.'/assets/img/catalog/instruments-section.jpg'; //how to insert to scss?
+$electro_guitar_subcat = ROOTURL.'/assets/img/catalog/guitar/electro-guitar/item2(horiz).jpeg';
+$electro_guitar = ROOTURL.'/assets/img/catalog/electric-guitar-category.jpg';
 
 //links
 $linkstoJS = array(
@@ -23,8 +27,14 @@ $gotoHome = ROOTURL.'/index.php';
 $gotoAbout = '#about';
 $gotoCreators = '#creators';
 $gotoHistory = '#history';
+$gotoCatalog = ROOTURL.'/app/catalog/catalog-home.php';
+$gotoCatCat = ROOTURL.'/app/catalog/catalog-cat.php';
+$gotoCatSubcat = ROOTURL.'/app/catalog/catalog-subcat.php';
+$gotoCatSS = ROOTURL.'/app/catalog/catalog-ss.php';
+$gotoCatSSS = ROOTURL.'/app/catalog/catalog-sss.php';
 $gotoLibrary = ROOTURL.'/app/library/library0.php';
 $gotoProduct = '#product';
 $gotoLogin = '#login';
 $gotoSignUp = '#signup';
+
 ?>

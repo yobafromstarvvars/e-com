@@ -1,19 +1,37 @@
 //'_items.scss' CONTAINS STYLES FOR ITEMS (PRODUCTS)
 
+$product-card-border-radius: 10px;
+$product-card-img-height:170px;
+$product-card-width:180px;
+
 .products {
     // empty
 
     .product-section {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-        gap: 3rem 2rem;
+        gap: 3rem 3rem;
         padding: 3rem 0;
-        margin: 0 1.5rem;
+        margin: 0 2.5rem 0 1.5rem;
 
         .product-container {
             display: flex;
             flex-direction: column;
             position: relative;
+            background-color: $bg-product-info;
+            width: $product-card-width;
+            height: 24rem;
+            border-radius: $product-card-border-radius;
+            box-shadow: 0 0;
+            top:0;
+            border:1px solid $outline-product-card;
+            transition: top .1s, box-shadow ease .4s;
+            
+
+            &:hover {
+                top: -3px;
+                box-shadow: 0px 2px 7px 3px rgba(255, 255, 255, 0.19);
+            }
 
             .cover {
                 position: relative;
@@ -21,33 +39,65 @@
                 background-color: $bg-loading-cover;
                 transition: top ease 0.2s;
                 top: 0;
+                height: $product-card-img-height;
+                width: $product-card-width - 2;
+                border-radius: $product-card-border-radius $product-card-border-radius 0 0;
 
                 &:hover {
-                    top: -5px;
+                    //top: -5px;
                 }
 
                 .button-on-image {
                     position: absolute;
                     margin: 10px 10px auto auto;
                     right: 0%;
+                    display:none;
                 }
 
                 .cover-image {
                     width: 100%;
                     height: 100%;
                     min-width: 120px;
-                    min-height: 180px;
+                    min-height: $product-card-img-height;
                     border-top: 1px solid $outline-cover;
                     border-right: 1px solid $outline-cover;
                     background-color: $bg-loading-cover;
+                }
+
+                .background-cover {
+                    background-color: #fff;
+                    padding:10px;
+                    width:$product-card-width - 2;
+                    height:$product-card-img-height;
+                    display: flex;
+                    border-radius: $product-card-border-radius $product-card-border-radius 0 0;
+
+                    .cover-image2 {
+                        width:100%;
+                        height: 100%;  
+                        background-image: url('../img/catalog/guitar/acoustic-guitar/item1.jpeg');
+                        background-repeat: no-repeat;
+                        //background-attachment: fixed;
+                        background-size: contain;
+                        border-radius: $product-card-border-radius $product-card-border-radius 0 0;
+                    }
                 }
             }
 
             .product-bottom-section {
                 display: flex;
                 align-items: flex-start;
-                margin-top: 1rem;
+                //margin-top: $product-card-img-height;
                 flex-direction: column;
+                padding: 5px;
+                height: 100%;
+
+
+                & * {
+                    text-align:center;
+                    margin-left: auto; 
+                    margin-right: auto;
+                }
 
                 .product-title {
                     font-size: 1.1rem;
@@ -56,6 +106,13 @@
                     text-decoration: none;
                     color: $txt-primary;
                     transition: color 150ms;
+                    text-overflow:ellipsis;
+                    width:100%;
+                    // Add ellipsis if overflows three lines
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
 
                     &:hover {
                         color: $txt-primary-hover;
@@ -75,25 +132,38 @@
                     color: $star-empty !important;
                 }
 
-                .product-release-date {
-                    margin-bottom: 0.1rem;
+                .goto-product-category-btn {
+                    margin-bottom: 0.8rem;
                     text-decoration: none;
-                    color: $txt-secondary;
+                    color: $txt-button-c;
+                    border: 1px solid $outline-button-c;
+                    border-radius:10px;
+                    transition: border .1s;
+                    cursor: pointer;
+                    padding: 1px 8px;
+                    position:relative;
+                    margin-top:auto;
+                    display:flex;
+                    &:hover {
+                        border: 1px solid $outline-button-c-hover;
+                        color: $txt-button-c-hover;
+                    }
                 }
 
                 .product-price {
-                    color: $txt-primary;
-
                     &::before {
                         content: "$";
+                        color: $txt-product-price;
                     }
 
                     &::after {
                         content: "3.99";
                         font-size: 1.3rem;
+                        color: $txt-product-price;
                     }
 
                     &::first-letter {
+                        color: $txt-product-price;
                         font-size: 0.9rem;
                         opacity: 0.9;
                         vertical-align: top;
