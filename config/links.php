@@ -2,6 +2,7 @@
 // THIS FILE CONTAINES ALL VARIABLES USED AS LINKS (should go after path.php)
 
 //images
+$linktoIcon = ROOTURL.'/assets/img/icon64x64.png';
 $logo = ROOTURL."/assets/img/logo5.png";
 $libraryEmpty = ROOTURL."/assets/img/library/empty_library.png";
 $libraryLoggedout = ROOTURL."/assets/img/library/library_loggedout.png";
@@ -15,7 +16,6 @@ $linkstoJS = array(
     '<script src="'.ROOTURL.'/assets/js/collapsableFilters.js"></script>',
 );
 $linktoCSS = ROOTURL.'/assets/styles/style.css';
-$linktoIcon = ROOTURL.'/assets/img/icon32x32.png';
 $gotoNewReleases = '#releases'; 
 $gotoAccount = '#account';
 $gotoCart = '#cart';

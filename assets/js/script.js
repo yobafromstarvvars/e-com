@@ -1,33 +1,28 @@
 //
 //DROPLISTS --- script for resizing format drop lists --- make loop for a number imported from DB instead of static number
 //
-let filterIDs = ['#genre', 'format', 'price', 'author', 'publisher'];
 $(document).ready(function() {
-  $('#genre').change(function(){
-    $("#width_tmp_option").html($('#genre option:selected').text());
+  $('#instrument').change(function(){
+    $("#width_tmp_option").html($('#instrument option:selected').text());
     $(this).width($("#width_tmp_select").width());  
   });
   
-  $('#format').change(function(){
-    $("#width_tmp_option").html($('#format option:selected').text()); 
+  $('#manufacturer').change(function(){
+    $("#width_tmp_option").html($('#manufacturer option:selected').text()); 
     $(this).width($("#width_tmp_select").width());  
   });
 
-  $('#price').change(function(){
-    $("#width_tmp_option").html($('#price option:selected').text()); 
+  $('#country').change(function(){
+    $("#width_tmp_option").html($('#country option:selected').text()); 
     $(this).width($("#width_tmp_select").width());  
   });
 
-  $('#author').change(function(){
-    $("#width_tmp_option").html($('#author option:selected').text()); 
-    $(this).width($("#width_tmp_select").width());  
-  });
-
-  $('#publisher').change(function(){
-    $("#width_tmp_option").html($('#publisher option:selected').text()); 
+  $('#type').change(function(){
+    $("#width_tmp_option").html($('#type option:selected').text()); 
     $(this).width($("#width_tmp_select").width());  
   });
 });
+
 
 
 
@@ -130,29 +125,6 @@ $(function(){
         }
     });
 });
-
-
-// OPEN FILTERS
-var coll = document.getElementsByClassName("collapsible");
-var i;
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
-
-$(function myFunction() {
-  alert("I am an alert box!");
-});
-alert("I am an alert box!");
-
 
 
 

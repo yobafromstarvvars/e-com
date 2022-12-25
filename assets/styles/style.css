@@ -477,7 +477,7 @@ change the style of the sidebar (less padding and a smaller font size) */
   margin-right: 1.3rem;
   word-wrap: none;
   border: 1px solid #4B4B4B;
-  border-radius: 420px;
+  border-radius: 10px;
   background-color: #313131;
   padding: 0.5rem 0.3rem;
   width: -webkit-fit-content;
@@ -490,32 +490,31 @@ change the style of the sidebar (less padding and a smaller font size) */
   text-align: center;
   transition: background-color 150ms;
   /*
-  #genre {
-      width: 79.5667px;
-  }
+              #publisher {
+                  width: 104.233px
+              }
 
-  #publisher {
-      width: 104.233px
-  }
+              #price {
+                  width: 73.8667px;
+              }
 
-  #price {
-      width: 73.8667px;
-  }
+              #author {
+                  width: 85.3667px;
+              }
 
-  #author {
-      width: 85.3667px;
-  }
-
-  #format {
-      width: 88.7833px;
-  }
-  */
+              #format {
+                  width: 88.7833px;
+              }
+              */
 }
 .filters .filter-section .filters-row::-ms-expand {
   display: none;
 }
 .filters .filter-section .filters-row:hover {
   background-color: #202020;
+}
+.filters .filter-section .filters-row #type {
+  width: 50px;
 }
 
 #width_tmp_select {

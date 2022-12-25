@@ -4,7 +4,7 @@
         <?php 
             //Every select element (5 of them) should have its own id for the
             // script that does resizing to fit to content won't work
-            $filterIDs = array('instrument', 'manufacturer', 'country', 'type');
+            $filterIDs = array('type', 'instrument', 'manufacturer', 'country');
             for($i=0; $i < count($filterIDs); $i++){
                 $_SESSION['filterID'] = $filterIDs[$i];
                 include FILTER;
