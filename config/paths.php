@@ -11,6 +11,7 @@
     define ('FILTERSROW',   realpath(ROOTPATH.'/common/filters.php'));
     define ('FOOTER',       realpath(ROOTPATH.'/common/footer.html'));
     define ('HEAD',         realpath(ROOTPATH.'/common/head.php'));
+    define ('PATH',         realpath(ROOTPATH.'/common/path.php'));
 
     //temps
     define ('CAROUSELTEMP', realpath(ROOTPATH.'/app/index/_carouseltemp.php'));
@@ -29,7 +30,12 @@
     define ('SUBSUBCATS',   realpath(ROOTPATH.'/app/catalog/_ss-categories.php'));
     define ('SUBSUBSUBCATS',realpath(ROOTPATH.'/app/catalog/_sss-categories.php'));
     define ('SUBFILTERS',   realpath(ROOTPATH.'/app/catalog/_sub-filters.php'));
-    define ('PATH',         realpath(ROOTPATH.'/common/path.php'));
+    define ('PRODUCTINFO',  realpath(ROOTPATH.'/app/catalog/_product-info.php'));
+    define ('SIGNIN1',      realpath(ROOTPATH.'/app/signin/_signin-form1.php'));
+    define ('ABOUTMAIN',    realpath(ROOTPATH.'/app/about/_about-main.php'));
+    define ('PROFILEMAIN',  realpath(ROOTPATH.'/app/profile/_profile-main.php'));
+    define ('CARTMAIN',     realpath(ROOTPATH.'/app/profile/_cart-main.php'));
+    define ('ADMIN_MAIN',   realpath(ROOTPATH.'/app/admin/_admin-main.php'));
     
     //pages
     define ('LIBRARY0CONTENT', realpath(ROOTPATH.'/app/library/_library0.php'));

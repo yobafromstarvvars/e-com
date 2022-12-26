@@ -1,0 +1,44 @@
+// SIGNIN FORM1
+.signin-form1 {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 5rem auto 0;
+
+    & input {
+        margin-bottom: 10px;
+    }
+
+    & * {
+        background-color: $bg-primary-button-c;
+    }
+    .signin-login {
+        display: flex;
+    }
+    .signin-password {
+        display: flex;
+    }
+    .signin-button {
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
+// CART
+.cart-main {
+    padding:3rem;
+    .cart-list button{
+        background-color: $bg-primary-button-c;
+        width:fit-content;
+        height:fit-content;
+    }
+    .cart-checkout-info{
+
+    }
+}
+
+//PROFILE-MAIN
+.profile-main {
+    padding:3rem;
+}

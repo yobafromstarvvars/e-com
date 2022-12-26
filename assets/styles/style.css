@@ -274,6 +274,7 @@ change the style of the sidebar (less padding and a smaller font size) */
 }
 .footer-container {
   padding-top: 1em;
+  width: 100%;
 }
 
 .footer-text {
@@ -932,6 +933,117 @@ change the style of the sidebar (less padding and a smaller font size) */
   margin-right: 10px;
 }
 
+#main {
+  height: 100%;
+}
+
+.product-main {
+  height: 100%;
+}
+.product-main .product-info {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 2rem;
+  margin-left: 1.8rem;
+}
+.product-main .product-info .product-text-info {
+  margin-top: 0.8rem;
+}
+.product-main .product-info .product-text-info .product-star-rating-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.87);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 3px;
+}
+.product-main .product-info .product-text-info .product-star-rating-link .product-star-rating {
+  margin-right: 5px;
+}
+.product-main .product-info .product-text-info .product-star-rating-link .product-star-rating span {
+  color: #FFF500;
+  font-size: 25px;
+}
+.product-main .product-info .product-text-info .product-star-rating-link .star-half {
+  color: #FFF500;
+}
+.product-main .product-info .product-text-info .product-star-rating-link .no-star {
+  color: #B59F51 !important;
+}
+.product-main .product-info .product-text-info .product-info-specs {
+  margin-top: 1rem;
+}
+.product-main .product-info .product-text-info .product-info-specs li {
+  font-size: 16px;
+}
+.product-main .product-info .product-gallery {
+  margin-top: 0.8rem;
+  margin-right: 0.8rem;
+  margin-bottom: 0.8rem;
+  background-image: url(../img/catalog/product-gallery.jpg);
+  background-color: #303030;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  border: 1px solid #4B4B4B;
+  border-radius: 20px;
+}
+.product-main #product-reviews {
+  width: 100%;
+  padding-left: 2.5rem;
+}
+.product-main #product-reviews .product-review-add {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-bottom: 0.5rem;
+  border-radius: 10px;
+  width: 70%;
+  margin-bottom: 2rem;
+}
+.product-main #product-reviews .product-review-add .product-review-add-header {
+  background-color: #414141;
+  border-top: 1px solid #757575;
+  border-left: 1px solid #757575;
+  border-right: 1px solid #757575;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+}
+.product-main #product-reviews .product-review-add .product-review-add-main {
+  background-color: #414141;
+  border-bottom: 1px solid #757575;
+  border-left: 1px solid #757575;
+  border-right: 1px solid #757575;
+  border-radius: 0 0 10px 10px;
+}
+.product-main #product-reviews .product-reviews-header {
+  display: inline;
+  text-align: center;
+}
+.product-main #product-reviews .product-review {
+  background-color: #1d1d1d;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-bottom: 0.5rem;
+  border-radius: 10px;
+  width: 70%;
+}
+.product-main #product-reviews .product-review .product-star-rating {
+  margin-right: 5px;
+}
+.product-main #product-reviews .product-review .product-star-rating span {
+  color: #FFF500;
+  font-size: 15px;
+}
+.product-main #product-reviews .product-review .star-half {
+  color: #FFF500;
+}
+.product-main #product-reviews .product-review .no-star {
+  color: #B59F51 !important;
+}
+
 .path-row {
   margin: 1rem 0 3rem 2rem;
 }
@@ -966,6 +1078,62 @@ change the style of the sidebar (less padding and a smaller font size) */
 }
 .path-row .path-end-btn {
   border-radius: 0 10px 10px 0;
+}
+
+.signin-form1 {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 5rem auto 0;
+}
+.signin-form1 input {
+  margin-bottom: 10px;
+}
+.signin-form1 * {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.signin-form1 .signin-login {
+  display: flex;
+}
+.signin-form1 .signin-password {
+  display: flex;
+}
+.signin-form1 .signin-button {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cart-main {
+  padding: 3rem;
+}
+.cart-main .cart-list button {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.profile-main {
+  padding: 3rem;
+}
+
+.about-main {
+  padding: 3rem;
+}
+.about-main .address-map {
+  height: 150px;
+  width: 400px;
+}
+
+.admin-main .admin-table {
+  width: 30%;
+  border: 1px solid black;
+}
+.admin-main .admin-table td {
+  border: 1px solid black;
 }
 
 /* Slideshow container */

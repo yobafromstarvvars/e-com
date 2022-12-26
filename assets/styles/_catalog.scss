@@ -207,9 +207,8 @@
 
         .sub-filters {
             & * {
-                margin-right:10px;
+                margin-right: 10px;
             }
-
 
             .sub-filters-select {
                 width: 200px;
@@ -273,6 +272,153 @@
                 //overflow:hidden;
                 object-fit: contain;
                 margin-right: 10px;
+            }
+        }
+    }
+}
+
+// PRODUCT-INFO
+#main {
+    height: 100%;
+}
+
+.product-main {
+    height: 100%;
+
+    .product-info {
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0 2rem;
+        margin-left: 1.8rem;
+
+        .product-text-info {
+            margin-top: 0.8rem;
+
+            .product-info-title {
+            }
+
+            .product-star-rating-link {
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                color: $txt-primary;
+                cursor: pointer;
+                font-size: 16px;
+                line-height: 3px;
+
+                .product-star-rating {
+                    margin-right: 5px;
+
+                    span {
+                        color: $star-full;
+                        font-size: 25px;
+                    }
+                }
+
+                .star-half {
+                    color: $star-half;
+                }
+
+                .no-star {
+                    color: $star-empty !important;
+                }
+            }
+
+            .product-info-specs {
+                margin-top: 1rem;
+
+                li {
+                    font-size: 16px;
+                }
+            }
+            
+            .product-info-description {
+
+            }
+        }
+
+        .product-gallery {
+            margin-top: 0.8rem;
+            margin-right: 0.8rem;
+            margin-bottom: 0.8rem;
+            background-image: url(../img/catalog/product-gallery.jpg);
+            background-color:$bg-loading-cover;
+            background-size:cover;
+            background-repeat:no-repeat;
+            background-position: bottom;
+            border: 1px solid $outline-categories-product-gallery;
+            border-radius: 20px;
+        }
+    }
+    #product-reviews {
+        width:100%;
+        padding-left:2.5rem;
+
+        .product-review-add {
+            display:flex;
+            flex-direction:column;
+            margin: 0 auto;
+            //padding:2rem;
+            padding-bottom:.5rem;
+            border-radius: 10px;
+            width:70%;
+            margin-bottom:2rem;
+
+            .product-review-add-header{
+                background-color: $bg-categories-product-add-review;
+                border-top: 1px solid $outline-categories-add-review;
+                border-left: 1px solid $outline-categories-add-review;
+                border-right: 1px solid $outline-categories-add-review;
+                border-bottom: none;
+                border-radius: 10px 10px 0 0;
+                
+            }
+
+            .product-review-add-main {
+                background-color: $bg-categories-product-add-review;
+                border-bottom: 1px solid $outline-categories-add-review;
+                border-left: 1px solid $outline-categories-add-review;
+                border-right: 1px solid $outline-categories-add-review;
+                border-radius: 0 0 10px 10px;
+            }
+        }
+
+
+        
+
+        .product-reviews-header {
+            display:inline;
+            text-align:center;
+        }
+
+        .product-reviews-line {
+            
+        }
+
+        .product-review {
+            background-color: $bg-categories-product-review;
+            margin: 0 auto;
+            padding:2rem;
+            padding-bottom:.5rem;
+            border-radius: 10px;
+            width:70%;
+
+            .product-star-rating {
+                margin-right: 5px;
+    
+                span {
+                    color: $star-full;
+                    font-size: 15px;
+                }
+            }
+    
+            .star-half {
+                color: $star-half;
+            }
+    
+            .no-star {
+                color: $star-empty !important;
             }
         }
     }
