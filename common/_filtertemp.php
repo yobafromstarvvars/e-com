@@ -1,5 +1,5 @@
 
-<form action="/action_page.php">
+<form>
     <!--
     Every select element (5 of them) should have its own id for the
                 script that does resizing to fit to content won't work-->

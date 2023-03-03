@@ -16,6 +16,7 @@
 
         <!-- style -->
         <link rel="stylesheet" href="<?php echo $linktoCSS ?>"/>
+        <?php loadLinks($linkstoCSS); ?>
 
         <!-- icon -->
         <link rel="icon" href="<?php echo $linktoIcon ?>" sizes="32x32">

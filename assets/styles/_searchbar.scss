@@ -40,7 +40,7 @@ $signin-border-radius: $search-bar-border-radius;
 
     .search-bar {
         flex-grow: .7;
-        margin: 0 9rem 0 12rem;
+        margin: 0 5rem 0 12rem;
         display: flex;
         font-size: 1.2em;
 
@@ -97,8 +97,8 @@ $signin-border-radius: $search-bar-border-radius;
 
     .menu-icons {
         display: grid;
-        gap: 2rem;
-        grid-template-columns: repeat(2, auto);
+        gap: 1rem;
+        grid-template-columns: repeat(3, auto);
         align-items: center;
 
         .menu-btn {
@@ -124,7 +124,13 @@ $signin-border-radius: $search-bar-border-radius;
                 }
             }
         }
-        
+
+        .menu-account-picture {
+            width: 30px;
+            height: 30px;
+            border-radius:100px;
+        }
+
         .menu-account-btn {
             align-items: center;
             width: fit-content;
@@ -133,6 +139,8 @@ $signin-border-radius: $search-bar-border-radius;
             padding: .5rem 1rem;
             border-radius: $signin-border-radius;
             transition: border 150ms;
+
+            
 
             & span {
                 transition: color 150ms;

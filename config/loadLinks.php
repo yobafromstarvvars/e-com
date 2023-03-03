@@ -1,9 +1,9 @@
 <?php 
-// load all js scripts. Order is set in links.php
-    function loadJS($linkstoJS) {
-        foreach ($linkstoJS as $link) {
+// load links Order is set in links.php
+    function loadLinks($links) {
+        foreach ($links as $link) {
             echo $link;
         }
     }
-        
+      
 ?>

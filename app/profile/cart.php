@@ -1,6 +1,5 @@
 <?php 
     require "../../config/loadConfig.php";
-    require HEAD;
 ?>
     <body>
         <?php
@@ -18,7 +17,14 @@
             echo '</div>';
 
             // load all js scripts. Order is set in links.php
-            loadJS($linkstoJS);
+            loadLinks($linkstoJS);
+            
         ?>
+        <script type="text/javascript">  
+        function getProductAmount(){  
+            var number=document.getElementByClass("product_amount").value; 
+            
+        }  
+</script>  
     </body>
 </html>

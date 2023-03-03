@@ -1,3 +1,18 @@
+<?php
+
+//session started already
+if (isset($_SESSION['user_id'])) {
+   if (! isset($user)){ 
+    $mysqli = require DB_CONNECT;
+        $sql = "SELECT * FROM user WHERE id = {$_SESSION['user_id']}";
+        $result = $mysqli->query($sql);
+        $user = $result->fetch_assoc();
+        
+        }
+}
+
+?>
+
 <header class="header">
     <a href="<?php echo $gotoHome ?>" id="logo">
         <img id="logo-img" src="<?php echo $logo ?>" alt="Music House Logo"/>
@@ -12,14 +27,32 @@
         </button>
     </form>
     
-    <div class="menu-icons">
-        
+    <?php if (isset($user)): // if user is logged in?>
+
+        <div class="menu-icons">
         <a class="menu-cart-btn menu-btn" href="<?php echo $gotoCart ?>">
             <span class="material-icons" alt="Cart">local_mall</span>
         </a>
-        <a class="menu-account-btn menu-btn" href="<?php echo $gotoAccount ?>">
+        <a class="menu-btn" href="<?php echo $gotoProfile ?>">
+            <img class="menu-account-picture" src="<?= ROOTURL.$user["image_path"] ?>" alt="Profile">
+        </a>
+        <a class="menu-btn" href="<?php echo $logout ?>">
+        <span class="material-icons">logout</span>
+</a>
+        </div>
+
+    <?php else: // if user is NOT logged in ?>
+
+        <div class="menu-icons">
+        <a class="menu-cart-btn menu-btn" href="<?php echo $gotoLogin ?>">
+            <span class="material-icons" alt="Cart">local_mall</span>
+        </a>
+        <a class="menu-account-btn menu-btn" href="<?php echo $gotoLogin ?>">
             <span class="material-icons menu-account-icon">account_circle</span>
             <span class="menu-account-label">SIGN IN</span>
         </a>
-    </div>
+        
+        </div>
+
+    <?php endif; ?>
 </header>

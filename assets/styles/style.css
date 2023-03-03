@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Falling Sky";
   src: url(../fonts/FallingSky-JKwK.otf) format("opentype");
@@ -156,7 +157,7 @@
 }
 
 .search-legacy-button {
-  border: hsl(0deg, 0%, 18.82%);
+  border: hsl(0, 0%, 18.82%);
 }
 
 body {
@@ -303,6 +304,89 @@ change the style of the sidebar (less padding and a smaller font size) */
   padding-top: 3.5rem;
 }
 
+.form-regular :-ms-input-placeholder {
+  color: #949494;
+  color: var(--form-placeholder);
+}
+.form-regular ::-ms-input-placeholder {
+  color: #949494;
+  color: var(--form-placeholder);
+}
+.form-regular h1 {
+  font-size: 2.2em;
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.form-regular label {
+  vertical-align: middle;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+.form-regular a {
+  text-decoration: none;
+  color: #0076d1;
+  color: var(--links);
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: inherit;
+}
+.form-regular button {
+  color: var(--form-text);
+  background-color: #222222;
+  font-family: inherit;
+  font-size: inherit;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  transition: background-color 0.1s linear, border-color 0.1s linear, color 0.1s linear, box-shadow 0.1s linear, transform 0.1s ease;
+}
+.form-regular button:hover {
+  background: hsl(0, 0%, 18.82%);
+}
+.form-regular input {
+  color: var(--form-text);
+  background-color: #121212;
+  font-family: inherit;
+  font-size: inherit;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  vertical-align: top;
+  transition: background-color 0.1s linear, border-color 0.1s linear, color 0.1s linear, box-shadow 0.1s linear, transform 0.1s ease;
+}
+.form-regular input:focus {
+  box-shadow: 0 0 0 2px rgba(0, 150, 191, 0.6705882353);
+}
+.form-regular input input[type=submit] {
+  background-color: #d0cfcf;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+.form-regular input input[type=submit]:hover {
+  background: #9b9b9b;
+  background: var(--button-hover);
+}
+
+.form-center {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  min-width: 200px;
+  margin: 5rem auto 0;
+}
+
+.form-center-align {
+  text-align: center;
+}
+
 .fixed-at-top {
   position: fixed;
   width: 100%;
@@ -337,12 +421,12 @@ change the style of the sidebar (less padding and a smaller font size) */
 }
 .header .search-bar {
   flex-grow: 0.7;
-  margin: 0 9rem 0 12rem;
+  margin: 0 5rem 0 12rem;
   display: flex;
   font-size: 1.2em;
 }
 .header .search-bar .search-input {
-  color: hsla(0deg, 100%, 100%, 0.88);
+  color: hsla(0, 100%, 100%, 0.88);
   background-color: #121212;
   width: 100%;
   font-size: inherit;
@@ -359,7 +443,7 @@ change the style of the sidebar (less padding and a smaller font size) */
   display: flex;
   align-items: center;
   padding: 0 1.25rem;
-  border: 1px solid hsl(0deg, 0%, 18.82%);
+  border: 1px solid hsl(0, 0%, 18.82%);
   border-left: none;
   border-radius: 0 8px 8px 0;
   cursor: pointer;
@@ -368,7 +452,7 @@ change the style of the sidebar (less padding and a smaller font size) */
   color: #aaa;
 }
 .header .search-bar .search-btn:hover {
-  background-color: hsl(0deg, 0%, 18.82%);
+  background-color: hsl(0, 0%, 18.82%);
 }
 .header .search-bar .open-filters-btn {
   background-color: #202020;
@@ -383,8 +467,8 @@ change the style of the sidebar (less padding and a smaller font size) */
 }
 .header .menu-icons {
   display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(2, auto);
+  gap: 1rem;
+  grid-template-columns: repeat(3, auto);
   align-items: center;
 }
 .header .menu-icons .menu-btn {
@@ -404,9 +488,13 @@ change the style of the sidebar (less padding and a smaller font size) */
 .header .menu-icons .menu-cart-btn:hover span {
   color: #34a853;
 }
+.header .menu-icons .menu-account-picture {
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+}
 .header .menu-icons .menu-account-btn {
   align-items: center;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   flex-wrap: wrap;
@@ -480,7 +568,6 @@ change the style of the sidebar (less padding and a smaller font size) */
   border-radius: 10px;
   background-color: #313131;
   padding: 0.5rem 0.3rem;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   font-size: inherit;
@@ -581,7 +668,6 @@ change the style of the sidebar (less padding and a smaller font size) */
 .products .product-section .product-container .cover .background-cover .cover-image2 {
   width: 100%;
   height: 100%;
-  background-image: url("../img/catalog/guitar/acoustic-guitar/item1.jpeg");
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 10px 10px 0 0;
@@ -625,7 +711,20 @@ change the style of the sidebar (less padding and a smaller font size) */
 .products .product-section .product-container .product-bottom-section .no-star {
   color: #B59F51 !important;
 }
-.products .product-section .product-container .product-bottom-section .goto-product-category-btn {
+.products .product-section .product-container .product-bottom-section .goto-product-category-div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.products .product-section .product-container .product-bottom-section .goto-product-category-div .add-to-cart-btn {
+  border: none;
+  margin-left: auto;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+.products .product-section .product-container .product-bottom-section .goto-product-category-div .goto-product-category-btn {
   margin-bottom: 0.8rem;
   text-decoration: none;
   color: #0088ff;
@@ -638,24 +737,9 @@ change the style of the sidebar (less padding and a smaller font size) */
   margin-top: auto;
   display: flex;
 }
-.products .product-section .product-container .product-bottom-section .goto-product-category-btn:hover {
+.products .product-section .product-container .product-bottom-section .goto-product-category-div .goto-product-category-btn:hover {
   border: 1px solid #3ea6ff;
   color: #3ea6ff;
-}
-.products .product-section .product-container .product-bottom-section .product-price::before {
-  content: "$";
-  color: #ffa4a9;
-}
-.products .product-section .product-container .product-bottom-section .product-price::after {
-  content: "3.99";
-  font-size: 1.3rem;
-  color: #ffa4a9;
-}
-.products .product-section .product-container .product-bottom-section .product-price::first-letter {
-  color: #ffa4a9;
-  font-size: 0.9rem;
-  opacity: 0.9;
-  vertical-align: top;
 }
 .products .product-separated-section {
   border-top: 6px solid #303030;
@@ -687,15 +771,28 @@ change the style of the sidebar (less padding and a smaller font size) */
   color: rgba(255, 255, 255, 0.87);
 }
 
+.product-price {
+  font-size: 1.3rem;
+  color: #ffa4a9;
+}
+.product-price::before {
+  content: "₽";
+  color: #ffa4a9;
+}
+.product-price::first-letter {
+  color: #ffa4a9;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  vertical-align: top;
+}
+
 .cat-categories {
   margin-left: 0.5rem;
   margin-bottom: 1rem;
 }
 .cat-categories .cat-categories-category {
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   font-weight: 400;
@@ -727,7 +824,7 @@ change the style of the sidebar (less padding and a smaller font size) */
   height: 70px;
   border-radius: 10px;
   border-top: 5px solid #3ea6ff;
-  background-image: url("../img/catalog/instruments-category.jpg");
+  background-image: url("../img/catalog/placeholder.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -751,16 +848,14 @@ change the style of the sidebar (less padding and a smaller font size) */
 }
 .cat-category-section .cat-category-content .cat-category-subcategory {
   display: inline-block;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   margin-right: 1rem;
   margin-bottom: 1rem;
   border-radius: 10px;
-  background-image: url("../img/catalog/guitar-category.jpg");
+  background-image: url("../img/catalog/placeholder.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -788,7 +883,7 @@ change the style of the sidebar (less padding and a smaller font size) */
   height: 70px;
   border-radius: 10px;
   border-top: 5px solid #3ea6ff;
-  background-image: url("../img/catalog/guitar-category2.jpg");
+  background-image: url("../img/catalog/placeholder.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -818,7 +913,6 @@ change the style of the sidebar (less padding and a smaller font size) */
 .cat-subcat-section .cat-subcat-content .cat-subcat-sub {
   color: #030303;
   width: 300px;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   display: inline-flex;
@@ -847,7 +941,7 @@ change the style of the sidebar (less padding and a smaller font size) */
   height: 70px;
   border-radius: 10px;
   border-top: 5px solid #3ea6ff;
-  background-image: url("../img/catalog/guitar-category2.jpg");
+  background-image: url("../img/catalog/placeholder.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -867,7 +961,6 @@ change the style of the sidebar (less padding and a smaller font size) */
   color: rgba(255, 255, 255, 0.87);
 }
 .cat-ss-section .sub-filters-section {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   align-items: center;
@@ -912,7 +1005,6 @@ change the style of the sidebar (less padding and a smaller font size) */
 .cat-ss-section .cat-ss-content .cat-ss-cats {
   color: #030303;
   width: 300px;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   display: inline-flex;
@@ -982,7 +1074,7 @@ change the style of the sidebar (less padding and a smaller font size) */
   margin-top: 0.8rem;
   margin-right: 0.8rem;
   margin-bottom: 0.8rem;
-  background-image: url(../img/catalog/product-gallery.jpg);
+  background-image: url("../img/catalog/placeholder.png");
   background-color: #303030;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1056,10 +1148,8 @@ change the style of the sidebar (less padding and a smaller font size) */
   align-items: center;
   justify-content: center;
   padding: 0.2rem 1rem;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   margin-left: -4px;
@@ -1080,39 +1170,13 @@ change the style of the sidebar (less padding and a smaller font size) */
   border-radius: 0 10px 10px 0;
 }
 
-.signin-form1 {
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-  margin: 5rem auto 0;
-}
-.signin-form1 input {
-  margin-bottom: 10px;
-}
-.signin-form1 * {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-.signin-form1 .signin-login {
-  display: flex;
-}
-.signin-form1 .signin-password {
-  display: flex;
-}
-.signin-form1 .signin-button {
-  width: 50%;
-  margin: 0 auto;
-  text-align: center;
-}
-
 .cart-main {
   padding: 3rem;
 }
 .cart-main .cart-list button {
   background-color: rgba(0, 0, 0, 0.2);
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
@@ -1198,7 +1262,6 @@ change the style of the sidebar (less padding and a smaller font size) */
   border-radius: 0 3px 3px 0;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   /* On hover, add a black background color with a little bit see-through */
 }
@@ -1236,18 +1299,6 @@ change the style of the sidebar (less padding and a smaller font size) */
   text-shadow: 2px 2px 5px #030303;
   display: inline-block;
   transition: background-color 50ms ease;
-}
-
-@-webkit-keyframes fade {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 @keyframes fade {

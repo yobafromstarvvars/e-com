@@ -1,10 +1,12 @@
 <?php 
-    require "./config/loadConfig.php";
-    require HEAD;
+ require "./config/loadConfig.php";
+
+ 
+
+ 
 ?>
     <body>
         <?php
-            
 
             // Fixed position settings are in _searchbar.scss
             echo '<div class="fixed-at-top">';
@@ -17,12 +19,13 @@
            // require CAROUSEL;
             echo '<div id="main">';
             require CAROUSEL;
-                require HOMECONTENT;    
-                require FOOTER;         
+            require HOMECONTENT;    
+            require FOOTER;         
             echo '</div>';
 
             // load all js scripts. Order is set in links.php
-            loadJS($linkstoJS);
+            loadLinks($linkstoJS);
+            
         ?>
     </body>
 </html>

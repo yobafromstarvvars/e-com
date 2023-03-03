@@ -1,32 +1,25 @@
 <div class="products">
   <!-- First row -->
-  <section class="product-section">
-    <?php
-      for($i=0; $i < 6; $i++){
-        include PRODUCTS;
-      }
-    ?>
-  </section>
+  
+    <section class="product-section">
+      <?php
+      // connect to db
+ $conn = require DB_CONNECT;
+ // Products
+ $sql = "SELECT * FROM product LIMIT 30";
+ $products = mysqli_query($conn, $sql);
 
-  <!-- New releases section -->
-  <section class="product-section product-separated-section">
-    <h2 class="separated-section-title">
-      <a href="<?php echo $gotoNewReleases ?>" class="separated-section-title">Best deal</a>
-      <a href="<?php echo $gotoNewReleases ?>" class="separated-section-expandbtn">See all</a>
-    </h2>
-    <?php
-      for($i=0; $i < 6; $i++){
-        include PRODUCTS;
-      }
-    ?>
-  </section>
+ // How many products
+ $products_count = mysqli_num_rows($products);
+ while ($product = mysqli_fetch_assoc($products)){
+   // Subcategory
+ $sql = "SELECT * FROM subcategory WHERE id = {$product["id_subcategory"]}";
+ $subcategories = mysqli_query($conn, $sql);
+ $product_subcategory = mysqli_fetch_assoc($subcategories)["name"];
+  include PRODUCTS;
+ }
+        
 
-  <!-- The rest of the products -->
-  <section class="product-section">
-    <?php
-      for($i=0; $i < 1; $i++){
-        include PRODUCTS;
-      }
-    ?>
-  </section>
+      ?>
+    </section>
 </div>

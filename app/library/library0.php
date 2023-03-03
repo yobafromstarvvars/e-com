@@ -1,6 +1,5 @@
 <?php 
     require "../../config/loadConfig.php";
-    require HEAD;
 ?>
     <body>
         <?php

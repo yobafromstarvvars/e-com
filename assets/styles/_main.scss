@@ -1,7 +1,103 @@
 //'MAIN' IS EVERYTHING BUT SIDE AND TOP PANELS AND CAROUSEL IN index.html
 
-
 #main {
-    margin-left: $sidenav-width; /* Same as the width of the sidenav */
-    padding-top: 3.5rem; // Same as the width of the searchbar
+  margin-left: $sidenav-width; /* Same as the width of the sidenav */
+  padding-top: 3.5rem; // Same as the width of the searchbar
+}
+
+// Style forms such as login form
+.form-regular {
+  
+  :-ms-input-placeholder {
+    color: #949494;
+    color: var(--form-placeholder);
   }
+
+  ::-ms-input-placeholder {
+    color: #949494;
+    color: var(--form-placeholder);
+  }
+  & h1 {
+    font-size: 2.2em;
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  & label {
+    vertical-align: middle;
+    margin-bottom: 4px;
+    display: inline-block;
+  }
+  & a {
+    text-decoration: none;
+    color: #0076d1;
+    color: var(--links);
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    font-size:inherit;
+  }
+  & button {
+    color: var(--form-text);
+    background-color: #222222;
+    font-family: inherit;
+    font-size: inherit;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    transition: background-color 0.1s linear, border-color 0.1s linear, color 0.1s linear, box-shadow 0.1s linear,
+      transform 0.1s ease;
+    &:hover {
+      background: hsl(0, 0%, 18.82%);
+    }
+  }
+  & input {
+    color: var(--form-text);
+    background-color: #121212;
+
+    font-family: inherit;
+    font-size: inherit;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    vertical-align: top;
+
+    transition: background-color 0.1s linear, border-color 0.1s linear, color 0.1s linear, box-shadow 0.1s linear,
+      transform 0.1s ease;
+
+    &:focus {
+      box-shadow: 0 0 0 2px #0096bfab;
+    }
+
+    & input[type="submit"] {
+      background-color: #d0cfcf;
+
+      padding-right: 30px;
+      padding-left: 30px;
+
+      &:hover {
+        background: #9b9b9b;
+        background: var(--button-hover);
+      }
+    }
+  }
+}
+
+.form-center {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  min-width:200px;
+  margin: 5rem auto 0;
+  
+}
+
+.form-center-align {
+  text-align:center;
+}

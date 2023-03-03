@@ -1,6 +1,5 @@
 <?php 
     require "../../config/loadConfig.php";
-    require HEAD;
 ?>
     <body>
         <?php
@@ -18,7 +17,7 @@
             echo '</div>';
 
             // load all js scripts. Order is set in links.php
-            loadJS($linkstoJS);
+            loadLinks($linkstoJS);
         ?>
     </body>
 </html>

@@ -9,7 +9,7 @@
         // Fill the category with subcategories
             for ($i = 0; $i < 18; $i++){
                 echo '<a href="'.$gotoCatSSS.'" class="cat-ss-cats">';
-                echo '<img class="cat-ss-cats-img" src="'.$electro_guitar_subcat.'" alt="Electric Guitar subcategory - st models">';
+                echo '<img class="cat-ss-cats-img" src="'.$product_placeholder_img.'" alt="Electric Guitar subcategory - st models">';
                 echo 'ST Models';
                 echo '</a>';
             }
