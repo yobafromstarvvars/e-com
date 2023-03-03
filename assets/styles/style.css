@@ -824,7 +824,6 @@ change the style of the sidebar (less padding and a smaller font size) */
   height: 70px;
   border-radius: 10px;
   border-top: 5px solid #3ea6ff;
-  background-image: url("../img/catalog/placeholder.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -855,7 +854,6 @@ change the style of the sidebar (less padding and a smaller font size) */
   margin-right: 1rem;
   margin-bottom: 1rem;
   border-radius: 10px;
-  background-image: url("../img/catalog/placeholder.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1070,11 +1068,13 @@ change the style of the sidebar (less padding and a smaller font size) */
 .product-main .product-info .product-text-info .product-info-specs li {
   font-size: 16px;
 }
+.product-main .product-info .product-text-info .product-info-description {
+  font-size: 1.2rem;
+}
 .product-main .product-info .product-gallery {
   margin-top: 0.8rem;
   margin-right: 0.8rem;
   margin-bottom: 0.8rem;
-  background-image: url("../img/catalog/placeholder.png");
   background-color: #303030;
   background-size: cover;
   background-repeat: no-repeat;

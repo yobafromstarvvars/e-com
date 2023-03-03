@@ -1,6 +1,6 @@
 <article class="product-container">
     <form action="<?= $addRemoveToCart ?>" method="post">
-    <a href="<?php echo $gotoProduct?>" class="cover">
+    <a href="<?php echo $gotoProduct."?id=".$product["id"]?>" class="cover">
         <div class="background-cover">
             <div class="cover-image2" 
             style="<?= "background-image: url('".ROOTURL.$product["image_link"]."');"?>"></div>
@@ -23,7 +23,7 @@
         </span>
         
         <!-- Product details -->
-        <a href="<?php echo $gotoProduct?>" class="product-title"><?= $product["name"] ?></a>  
+        <a href="<?php echo $gotoProduct."?id=".$product["id"]?>" class="product-title"><?= $product["name"] ?></a>  
         <span class="product-price"><?=$product["price"]?></span>
         <input id="product_price" name="product_price" value="<?=$product["price"]?>" type="hidden">
         <div class="goto-product-category-div">

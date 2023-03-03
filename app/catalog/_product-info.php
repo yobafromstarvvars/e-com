@@ -1,58 +1,62 @@
+<?php
+$conn = require DB_CONNECT;
+ // get current product id from url
+ $url = $_SERVER['REQUEST_URI'];
+ $url_components = parse_url($url);
+ parse_str($url_components['query'], $params);
+ // subcategories
+ $product_id = htmlspecialchars($params["id"]);
+ $sql = "SELECT * FROM product WHERE id = {$product_id}";
+ $result = mysqli_query($conn, $sql);
+ $product = mysqli_fetch_assoc($result);
+
+ $sql = "SELECT * FROM brand WHERE id = {$product["id_brand"]}";
+ $result = mysqli_query($conn, $sql);
+ $brand = mysqli_fetch_assoc($result);
+
+?>
+
 <div class="product-main">
     <section class="product-info">
-        <div class="product-text-info">
-            <?php require PATH; ?>
-            <h1 class="product-info-title">Fame Peter Maffay Signature STD</h2>
-            <a href="#product-reviews" class="product-star-rating-link">
+        <form action="<?= $addRemoveToCart ?>" method="post">
+            <div class="product-text-info">
+                <?php require PATH; ?>
+                <h1 class="product-info-title"><?=ucwords($brand["name"])." ".$product["name"]?></h2>
+                <!-- Star rating -->
                 <span class="product-star-rating"> 
-                    <span class="star material-icons">star</span>
-                    <span class="star-half material-icons">star_half</span>
-                    <span class="no-star material-icons">star_outline</span>
-                    <span class="no-star material-icons">star_outline</span>
-                    <span class="no-star material-icons">star_outline</span>
+                    <?php for ($i=0; $i < 5; $i++): ?>
+                        <?php if ($product["rating"] - $i > 1): ?>
+                            <span class="star material-icons">star</span>
+                        <?php elseif ($product["rating"] - $i > 0): ?>
+                            <span class="star-half material-icons">star_half</span>
+                        <?php else: ?>
+                            <span class="no-star material-icons">star_outline</span>
+                        <?php endif; ?>
+                    <?php endfor; ?>
                 </span>
-                (1)
-            </a>
-            <ul class="product-info-specs">
-                <li>Electro-acoustic acoustic guitar in Grand Auditorium design</li>
-                <li>Peter Maffay signature edition with autograph inlay on the headstock</li>
-                <li>Solid spruce top with wood binding</li>
-                <li>Mahogany back and sides</li>
-                <li>Reinforced mahogany neck with HPL fingerboard</li>
-                <li>Compensated bridge inlay and 43 mm wide bone nut</li>
-                <li>Fame Forum headstock with black die-cast tuners</li>
-                <li>Pickup system with volume, bass and treble controls</li>
-                <li>Pickguard and control plate with riffle look</li>
-                <li>Peter Maffay custom trussrod cover</li>
-                <li>White custom laser engraving</li>
-                <li>Gauzy matte black lacquer finish</li>
-            </ul>
-            
-            <h3></h3>
-            <p class="product-info-description"></p>
-        </div>
-        <div class="product-gallery"></div>
-    </section>
-
-    <section id="product-reviews">
-        <hr class="product-reviews-line">
-        <h2 class="product-reviews-header">Reviews</h2>    
-
-        <div class="product-review-add">
-            <input class="product-review-add-header" maxlength="40" placeholder="Your review title">
-            <input class="product-review-add-main" maxlength="200" placeholder="What do you think about the product?">
-        </div>
-        <div class="product-review">
-            <span class="product-star-rating"> 
-                <span class="star material-icons">star</span>
-                <span class="star-half material-icons">star_half</span>
-                <span class="no-star material-icons">star_outline</span>
-                <span class="no-star material-icons">star_outline</span>
-                <span class="no-star material-icons">star_outline</span>
-            </span>
-            <strong><h4>It sucks</h4></strong>
-            <p>i h8 guitars they remind me of sleepless nights before an exam :(</p>
-            <p style="padding:0;">Vitl Kungfu - December 26<sup>th</sup>, 2022</p>
-        </div>
+                <br>
+                <!-- Product price -->
+                <span style="font-size:1.8rem" class="product-price"><?=$product["price"]?></span>
+                <input id="product_price" name="product_price" value="<?=$product["price"]?>" type="hidden">
+                <br>
+                <!-- Product cart buttons -->
+                <?php // Product is already is cart ?>
+                    <?php if (isset($_SESSION["cart_items"]) and in_array($product["id"], $_SESSION["cart_items"])): ?>
+                        <button id="removeFromCart" name="remove_product_id" type="submit" value="<?= $product["id"] ?>" class="btn btn-danger add-to-cart-btn">
+                            Remove from cart
+                        </button>
+                        
+                    <?php else: // If product is not added yet ?>
+                        <button  id="addToCart" name="add_product_id" type="submit" value="<?= $product["id"] ?>" class="btn btn-warning add-to-cart-btn">
+                            Add to cart
+                        </button>
+                    <?php endif; ?>
+                <!-- Product description -->
+                <p class="product-info-description">
+                    <?=$product["description"]?>
+                </p>
+            </div>
+            </form>
+            <div style="background-image: url('<?=ROOTURL.$product["image_link"]?>');" class="product-gallery"></div>
     </section>
 </div>

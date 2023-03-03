@@ -8,7 +8,7 @@ $conn = require DB_CONNECT;
 
 <div class="cat-categories">
     <?php while ($category = mysqli_fetch_assoc($categories)): ?>
-        <a href="#instruments" class="cat-categories-category">
+        <a href="#<?=strtolower($category["name"])?>" class="cat-categories-category">
             <?= ucwords($category["name"]) ?>
         </a>
     <?php endwhile; ?> 
@@ -19,24 +19,24 @@ $sql = "SELECT * FROM category";
 $categories = mysqli_query($conn, $sql);
 while ($category = mysqli_fetch_assoc($categories)): ?>
     
-    <section id="instruments" class="cat-category-section"> 
-    <div class="cat-category-heading">
-        <a href="<?php echo $gotoCatCat;?>" class="cat-category-heading-title">Instruments</a>
+    <section id="<?=strtolower($category["name"])?>" class="cat-category-section"> 
+    <div class="cat-category-heading" style="background-image: url('<?=ROOTURL.$category["image_link"]?>');">
+        <a href="" class="cat-category-heading-title">
+            <?=ucfirst($category["name"])?>
+        </a>
     </div>
     <div class="cat-category-content">
         <?php
         $sql = "SELECT * FROM subcategory WHERE id_category = {$category["id"]}";
-        $categories = mysqli_query($conn, $sql);
+        $subcategories = mysqli_query($conn, $sql);
         // Fill the category with subcategories
-            for ($i = 0; $i < 10; $i++){
-                echo '<div class="cat-category-subcategory">';
-                echo '<a href="'.$gotoCatSubcat.'" class="cat-category-subcategory-title">Guitars</a>';
-                echo '</div>';
-            }
-        ?>
-        <div class="cat-category-subcategory">
-            <a href="<?php echo $gotoCatSubcategory;?>" class="cat-category-subcategory-title">GuitarsGuitarsGuitars</a>
-        </div>
+            while ($subcategory = mysqli_fetch_assoc($subcategories)): ?>
+                <div id="<?=$subcategory["id"]?>" style="background-image: url('<?=ROOTURL.$subcategory["image_link"]?>');" class="cat-category-subcategory">
+                    <a href="<?=$gotoCatSubcat."?id=".$subcategory["id"]?>" class="cat-category-subcategory-title"><?=ucfirst($subcategory["name"])?></a>
+                </div>
+            <?php endwhile; ?>
+        
+        
     </div>
 </section>
 
