@@ -1,3 +1,6 @@
+<?php // to make header() work on a server
+ ob_start(); ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,4 +25,5 @@
         <link rel="icon" href="<?php echo $linktoIcon ?>" sizes="32x32">
 
         <title>MusicHouse</title>
+        <?php ini_set("display_errors", 1)?>
     </head>

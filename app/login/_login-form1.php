@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <form class="form-regular form-center" method="post">
 <h1>Log in</h1>
 <?php if ($is_invalid): ?>

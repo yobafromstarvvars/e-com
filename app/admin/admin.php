@@ -4,7 +4,8 @@
     <body>
         <?php
             echo '<div id="main">';
-                require ADMIN_MAIN;       
+                require CHECK_ADMIN;
+require ADMIN_MAIN;      
             echo '</div>';
 
             // load all js scripts. Order is set in links.php

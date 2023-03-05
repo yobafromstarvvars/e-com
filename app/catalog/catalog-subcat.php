@@ -12,8 +12,7 @@
             require SIDEPANEL;
 
             echo '<div id="main">';
-                require PATH;
-                require SUBCATEGORIES;
+                require CATEGORY_SUBCAT;
                 require FOOTER;         
             echo '</div>';
 

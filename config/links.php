@@ -33,12 +33,12 @@ $gotoHome = ROOTURL.'/index.php';
 $gotoAbout = ROOTURL.'/app/about/about.php';
 $gotoCreators = '#creators';
 $gotoHistory = '#history';
-$gotoCatalog = ROOTURL.'/app/catalog/catalog-home.php';
-$gotoCatCat = ROOTURL.'/app/catalog/catalog-cat.php'; 
-$gotoCatSubcat = ROOTURL.'/app/catalog/catalog-subcat.php';
-$gotoCatSS = ROOTURL.'/app/catalog/catalog-ss.php';
-$gotoCatSSS = ROOTURL.'/app/catalog/catalog-sss.php';
-$gotoProduct = ROOTURL.'/app/catalog/product.php';
+
+$gotoCatalog = ROOTURL.'/app/catalog/catalog-home.php'; // catalog main
+$gotoCategory = ROOTURL.'/app/catalog/catalog-cat.php'; // catalog category
+$gotoSubcat = ROOTURL.'/app/catalog/catalog-subcat.php'; // subcategory
+$gotoProduct = ROOTURL.'/app/catalog/product.php'; // product page
+
 $gotoLibrary = ROOTURL.'/app/library/library0.php';
 $gotoLogin = ROOTURL.'/app/login/login.php';
 $gotoSignUp = ROOTURL.'/app/signup/signup.php';
@@ -46,5 +46,13 @@ $gotoAdmin = ROOTURL.'/app/admin/admin.php';
 $logout = ROOTURL.'/logout.php';
 $addRemoveToCart = ROOTURL.'/addRemoveToCart.php';
 
+// Admin panel links
+$gotoAdminOrders = ROOTURL.'/app/admin/admin-order.php';
+$gotoAdminUser = ROOTURL.'/app/admin/admin-user.php';
+$gotoAdminProduct = ROOTURL.'/app/admin/admin-product.php';
+$gotoAdminCategory = ROOTURL.'/app/admin/admin-category.php';
+$gotoAdminSubcategory = ROOTURL.'/app/admin/admin-subcategory.php';
+$gotoAdminType = ROOTURL.'/app/admin/admin-type.php';
+$gotoAdminBrand = ROOTURL.'/app/admin/admin-brand.php';
 
 ?>

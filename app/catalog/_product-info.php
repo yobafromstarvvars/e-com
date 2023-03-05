@@ -14,13 +14,19 @@ $conn = require DB_CONNECT;
  $result = mysqli_query($conn, $sql);
  $brand = mysqli_fetch_assoc($result);
 
+  // History bar
+$_SESSION["current_page_name"] = "catalog";
+if (! isset($_SESSION["history"][$product["name"]])) {
+    $_SESSION["history"][$product["name"]] = $_SERVER['REQUEST_URI'];
+}
+require PATH;
 ?>
 
 <div class="product-main">
     <section class="product-info">
         <form action="<?= $addRemoveToCart ?>" method="post">
             <div class="product-text-info">
-                <?php require PATH; ?>
+                
                 <h1 class="product-info-title"><?=ucwords($brand["name"])." ".$product["name"]?></h2>
                 <!-- Star rating -->
                 <span class="product-star-rating"> 

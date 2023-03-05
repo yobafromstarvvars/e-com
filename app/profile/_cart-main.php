@@ -1,4 +1,5 @@
 <?php
+
 // connect to db
 $conn = require DB_CONNECT;
 $products_count = (isset($_SESSION["cart_items"])) ? count($_SESSION["cart_items"]) : 0;

@@ -1,8 +1,10 @@
-<?php 
+<?php
+ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
     require "../../config/loadConfig.php";
 ?>
     <body>
         <?php
+        die("Success");
             // Fixed position settings are in _searchbar.scss
             echo '<div class="fixed-at-top">';
                 require SEARCHBAR;       

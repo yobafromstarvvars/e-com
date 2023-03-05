@@ -11,7 +11,7 @@ $is_success_upload = False;
 // Upload picture
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     
-    if ($_FILES){
+    if ($_FILES["filename"]["name"]) {
         $name = $_FILES['filename']['name'];
         switch($_FILES['filename']['type'])
         {
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $stmt->bind_param("s", $image_path_db);
                 if (! $stmt->execute()) die("Upload error: ".$mysqli->error);
                 $is_success_upload = True;
-                //$_FILES = NULL;
+                header("Location: ".$gotoProfile);
             }
         }
         else $is_invalid_ext = True;

@@ -36,10 +36,11 @@ $stmt = $mysqli->stmt_init();
 if (! $stmt->prepare($sql)) {
     die("SQL error: ". $mysqli->error);
 }
-
+$name = ucwords(strtolower($_POST["name"]));
+$email = strtolower($_POST["email"]);
 if ($stmt->bind_param("sss", 
-                            ucwords(strtolower($_POST["name"])), 
-                            strtolower($_POST["email"]), 
+                            $name, 
+                            $email, 
                             $password_hash));
 
 

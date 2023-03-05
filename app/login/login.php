@@ -1,7 +1,6 @@
 <?php 
-    require "../../config/loadConfig.php";
-
-    $is_invalid = False;
+require "../../config/loadConfig.php";
+$is_invalid = False;
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $mysqli = require DB_CONNECT;
         $sql = sprintf("SELECT * FROM user WHERE email = '%s'", 
@@ -15,11 +14,12 @@
                     session_regenerate_id();
                     $_SESSION["user_id"] = $user["id"];
 
-                    header("Location: ".$gotoHome);
+                    header('Location: ' . $gotoHome);
                 }}
         }
         $is_invalid = True;
     }
+    
 ?>
     <body>
         <?php

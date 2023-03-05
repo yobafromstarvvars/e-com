@@ -31,5 +31,11 @@
 
     .path-end-btn {
         border-radius: 0 10px 10px 0;
+        pointer-events:none;
+        
+        color: $txt-primary-inverse;
+        background-color: $bg-path-button-active;
+        border: 1px solid $outline-path-button-active;
+        cursor:default;
     }
 }

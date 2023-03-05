@@ -1168,6 +1168,11 @@ change the style of the sidebar (less padding and a smaller font size) */
 }
 .path-row .path-end-btn {
   border-radius: 0 10px 10px 0;
+  pointer-events: none;
+  color: #030303;
+  background-color: #cfcfcf;
+  border: 1px solid #cfcfcf;
+  cursor: default;
 }
 
 .cart-main {
