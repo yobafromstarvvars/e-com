@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2023 at 05:52 AM
+-- Generation Time: Mar 06, 2023 at 04:55 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -34,14 +34,6 @@ CREATE TABLE `brand` (
   `id_category` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `brand`
---
-
-INSERT INTO `brand` (`id`, `name`, `image_link`, `id_category`) VALUES
-(1, 'Rockson', '/assets/img/brand/rockson.png', 1),
-(2, 'casio', '/assets/img/brand/casio.png', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -59,7 +51,10 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `image_link`) VALUES
-(1, 'instrument', '/assets/img/catalog/instruments-category.jpg');
+(6, 'instruments', '/assets/img/category/instruments-2023-03-05-06-31-55.jpg'),
+(7, 'music sheets', '/assets/img/catalog/placeholder.png'),
+(8, 'Books', '/assets/img/catalog/placeholder.png'),
+(9, 'gift', '/assets/img/catalog/placeholder.png');
 
 -- --------------------------------------------------------
 
@@ -70,8 +65,8 @@ INSERT INTO `category` (`id`, `name`, `image_link`) VALUES
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `order_date` date NOT NULL DEFAULT current_timestamp(),
-  `received_date` date DEFAULT NULL,
+  `order_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `received_date` timestamp NULL DEFAULT NULL,
   `status` enum('received','paid','processing','canceled') NOT NULL DEFAULT 'processing'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -109,14 +104,6 @@ CREATE TABLE `product` (
   `id_subcategory` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `product`
---
-
-INSERT INTO `product` (`id`, `name`, `image_link`, `description`, `price`, `id_brand`, `rating`, `amount`, `id_type`, `id_subcategory`) VALUES
-(1, 'ST Electric Guitar Black', '/assets/img/catalog/guitar-electro (3).jpeg', 'ST-style electric guitar with Poplar body, bolt-on maple neck, composite fretboard, \'C\' neck profile, ceramic single-coils.', 5390, 1, 4.86, 1, 1, 1),
-(2, 'CT-S100 Casiotone (Black)', '/assets/img/catalog/keys (2).jpeg', 'The Casio CT-S100 Casiotone (Black) is a 61-note portable Keyboard with 122x tones, 61x rhythms and an on-board Dance Music Mode. ', 6490, 2, 3.43, 1, 2, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -135,8 +122,10 @@ CREATE TABLE `subcategory` (
 --
 
 INSERT INTO `subcategory` (`id`, `name`, `id_category`, `image_link`) VALUES
-(1, 'guitar', 1, '/assets/img/catalog/guitar-acoustic (1).jpeg'),
-(2, 'keys', 1, '/assets/img/catalog/keys (4).jpeg');
+(6, 'guitar', 6, '/assets/img/subcategory/guitar-2023-03-05-06-33-03.jpg'),
+(7, 'keys', 6, '/assets/img/subcategory/keys-2023-03-05-06-38-20.jpg'),
+(8, 'music box', 9, '/assets/img/catalog/placeholder.png'),
+(9, 'media', 9, '/assets/img/catalog/placeholder.png');
 
 -- --------------------------------------------------------
 
@@ -150,14 +139,6 @@ CREATE TABLE `type` (
   `id_subcategory` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `type`
---
-
-INSERT INTO `type` (`id`, `name`, `id_subcategory`) VALUES
-(1, 'electric', 1),
-(2, 'keyboard', 2);
-
 -- --------------------------------------------------------
 
 --
@@ -169,7 +150,7 @@ CREATE TABLE `user` (
   `name` varchar(128) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password_hash` varchar(255) NOT NULL,
-  `joined_date` date NOT NULL DEFAULT current_timestamp(),
+  `joined_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `image_path` varchar(512) NOT NULL DEFAULT '/assets/img/profiles/profile-placeholder.png',
   `is_admin` tinyint(1) NOT NULL DEFAULT 0,
   `is_active` tinyint(1) NOT NULL DEFAULT 1
@@ -180,18 +161,25 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `password_hash`, `joined_date`, `image_path`, `is_admin`, `is_active`) VALUES
-(1, 'Will', 'will@gmail.com', '$2y$10$tFKfPd.ZiYJ1M64ZYljrn.Xt4OpsRhgTzJGASsCVhis6NPQQ/1gvG', '2023-03-02', '/assets/img/profiles/profile-placeholder.png', 0, 1),
-(5, 'Will', 'mary@gmail.com', '$2y$10$ZtT1vJ2w5JiJbE.ppEq2nu4S9W9nzKPEP1ohUEFi6TLgLjtWPNlwO', '2023-03-02', '/assets/img/profiles/profile-placeholder.png', 0, 1),
-(7, 'gary', 'gary@gmail.com', '$2y$10$Ljh2Fdout9U6PPDivqFSX.PBPsRSZrv3OlDDZd2b1qisxDn/5XX72', '2023-03-02', '/assets/img/profiles/profile-placeholder.png', 0, 1),
-(8, 'Dick', 'dick@gmail.com', '$2y$10$W4F3aDhQzQnvchd80i1rj.nBqtagxjH1I6E3HLlNN0/Q4qDqYlFUm', '2023-03-02', '/assets/img/profiles/profile-placeholder.png', 0, 1),
-(9, 'joe', 'joe@example.com', '$2y$10$riZFIxGBy9ZX03vZnn19ROXf5bm5dgD85CkfPyMWyfajrZezp6QKK', '2023-03-02', '/assets/img/profiles/profile-placeholder.png', 0, 1),
-(10, 'bob', 'bob@example.com', '$2y$10$6pHRlv5VNlXTQS3S3dgpzeoq6KLwEbHMNC0LSS8u/QgLKs.oChJlK', '2023-03-02', '/assets/img/profiles/profile-placeholder.png', 0, 1),
-(13, 'frank', 'frank@example.com', '$2y$10$wKK90hIBYVBYoIbeOzKVhurJ04t4Fw2/Wq0.alhM1V4iSFCOM6a3q', '2023-03-02', '/assets/img/profiles/profile-placeholder.png', 0, 0),
-(14, 'robert', 'robert@example.com', '$2y$10$yfv4mHjNQywICzkuSF8CPe2HojL9IFlmEDqOXHnnUBF.0dQjjBFL6', '2023-03-02', '/assets/img/profiles/profile-placeholder.png', 0, 1),
-(15, 'lade', 'lady@example.com', '$2y$10$Ejhyg5YbYjNdYz21pp6sxeJwOiiMUuqyoXGeNc7ukM3.BZpmaMN1e', '2023-03-02', '/assets/img/profiles/id15-2023-03-03-12-50-38.png', 0, 1),
-(16, '', '', '', '2023-03-03', '/assets/img/profiles/id15-2023-03-03-12-16-32.png', 0, 1),
-(17, 'Labo', 'labo@example.com', '$2y$10$Ejhyg5YbYjNdYz21pp6sxeJwOiiMUuqyoXGeNc7ukM3.BZpmaMN1e', '2023-03-03', '/assets/img/profiles/profile-placeholder.png', 0, 0),
-(18, 'Admin', 'admin@admin.com', '$2y$10$m5ddScJBJl7MjC/9/xcfnetS2MEVA6q7F5CocTyLtlqL9HmyP2VIG', '2023-03-03', '/assets/img/profiles/profile-placeholder.png', 1, 1);
+(1, 'William', 'william@gmail.com', '$2y$10$Hd1NHSiKT22UwSk2lzZDLelT4Gd1M9HEdEoVFWtxJ.BCgmdOnSoie', '2023-03-01 21:00:00', '/assets/img/profiles/profile-placeholder.png', 0, 0),
+(5, 'Will', 'mary@gmail.com', '$2y$10$ZtT1vJ2w5JiJbE.ppEq2nu4S9W9nzKPEP1ohUEFi6TLgLjtWPNlwO', '2023-03-01 21:00:00', '/assets/img/profiles/profile-placeholder.png', 0, 1),
+(15, 'lade', 'lady@example.com', '$2y$10$Ejhyg5YbYjNdYz21pp6sxeJwOiiMUuqyoXGeNc7ukM3.BZpmaMN1e', '2023-03-01 21:00:00', '/assets/img/profiles/id15-2023-03-03-12-50-38.png', 0, 1),
+(17, 'Labo', 'labo@example.com', '$2y$10$Ejhyg5YbYjNdYz21pp6sxeJwOiiMUuqyoXGeNc7ukM3.BZpmaMN1e', '2023-03-02 21:00:00', '/assets/img/profiles/profile-placeholder.png', 0, 0),
+(18, 'Admin', 'admin@admin.com', '$2y$10$m5ddScJBJl7MjC/9/xcfnetS2MEVA6q7F5CocTyLtlqL9HmyP2VIG', '2023-03-02 21:00:00', '/assets/img/profiles/id18-2023-03-05-03-05-10.png', 1, 1),
+(19, 'Dick', 'dick@example.com', '$2y$10$WEwau.5YJH8prAg/mSYX6OvOl1piLlGEBmz1u8wkZKvwS2ZfELyeG', '0000-00-00 00:00:00', '/assets/img/profiles/profile-placeholder.png', 0, 0),
+(20, 'Ass', 'ass@example.com', '$2y$10$H3qbY.bQBKTDAAeq5gZlz.ZDOYOZAsGQJGY96P.huUrBy3a3p3bRa', '0000-00-00 00:00:00', '/assets/img/profiles/profile-placeholder.png', 0, 0),
+(21, 'Finn', 'finn@example.com', '$2y$10$KvAwQ1yVgeHzBM50TAfnNu7BT0.fzXg0Rfr21VLdBqhWKFLNCxXw2', '0000-00-00 00:00:00', '/assets/img/profiles/profile-placeholder.png', 0, 0),
+(22, 'Jake', 'jake@example.com', '$2y$10$Trw0PdyYQ9Us8.sYGtv2O.E7csDHlI5tXqxrU/LwyrwO2uPTDoj/C', '0000-00-00 00:00:00', '/assets/img/profiles/profile-placeholder.png', 0, 0),
+(23, 'Islam', 'islam@example.com', '$2y$10$QTGhH89u808PKHOpsLeJQe1TQXlyg3wJUIdG10y4Tj85ycnLs/kV.', '0000-00-00 00:00:00', '/assets/img/profiles/profile-placeholder.png', 0, 0),
+(24, 'Olga', 'olga@example.com', '$2y$10$8CFZHrCZyQ.We./DMsRt2u0OHe0OtcwBlvwh4bleCMrqdJrI8x1s2', '0000-00-00 00:00:00', '/assets/img/profiles/profile-placeholder.png', 0, 0),
+(25, 'Steve', 'steve@example.com', '$2y$10$PjLFkLZmEv1AQ9qVLC1p..yf6l.RVTdLISbKsIZvQnCVYnk8wzJuq', '0000-00-00 00:00:00', '/assets/img/profiles/profile-placeholder.png', 0, 0),
+(26, 'Comb', 'comb@example.com', '$2y$10$E/XgI7M6hoaB9MU821Xkc.SfCoYB2YmY0z5TbgoJLLcPW.teoXwS2', '2023-03-05 00:54:19', '/assets/img/profiles/profile-placeholder.png', 0, 0),
+(27, 'Nick', 'nick@example.com', '$2y$10$NaabsxLW6PworwUFIZtV8.o.MoaCsZsggLBE3NawBXJ/6K3T9xUwy', '2023-03-05 00:56:24', '/assets/img/profiles/profile-placeholder.png', 0, 0),
+(28, 'Martin', 'martin@example.com', '$2y$10$U.ipqbr/Rr250/zJg53ue.yaE4L8LlPCvCFiw3N.ur0UwPtWRx6bW', '2023-03-05 00:58:16', '/assets/img/profiles/profile-placeholder.png', 0, 1),
+(29, 'Oliver', 'oliver@gmail.com', '$2y$10$1J89Z/J5tPMMPWj9efQPsOvRn5SAfbz8.xQ0u9Va0edOBt9vDOaiK', '2023-03-05 01:02:58', '/assets/img/profiles/profile-placeholder.png', 0, 1),
+(34, 'Oliver', 'oliver@gmai.com', '$2y$10$o/gByapgdsaWInWRS4NJRuKuB2sw6xDByZUOU5ZOGoclaqEJ9SUrG', '2023-03-05 01:19:34', '/assets/img/profiles/profile-placeholder.png', 0, 1),
+(35, 'Baby', 'baby@gmai.com', '$2y$10$VGx3vBc9qsPO.Kzg1/rIMuScCEZjIYdXXGKTTZ9MIe25ecKqQDaQK', '2023-03-05 01:20:16', 'The_Lake_1.png', 1, 1),
+(36, 'Paul', 'paul@comac.com', '$2y$10$BHcx/7M8X23Wp0/VqgtrZOfM8SwC9YJ6.Md9iBF69MJ0h6l8T8O0W', '2023-03-05 01:23:38', '/assets/img/profiles/profile-placeholder.png', 0, 1);
 
 --
 -- Indexes for dumped tables
@@ -267,6 +255,12 @@ ALTER TABLE `brand`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
@@ -288,7 +282,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `subcategory`
 --
 ALTER TABLE `subcategory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `type`
@@ -300,7 +294,7 @@ ALTER TABLE `type`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- Constraints for dumped tables
