@@ -37,7 +37,7 @@ require PATH;
                 while ($product = mysqli_fetch_assoc($result)) {
                     $sql = "SELECT * FROM subcategory WHERE id = {$product["id_subcategory"]}";
                     $subcategories = mysqli_query($conn, $sql);
-                    $product_subcategory = mysqli_fetch_assoc($subcategories)["name"];
+                    $product_subcategory = mysqli_fetch_assoc($subcategories);
                     include PRODUCTS;
                 }
             ?>

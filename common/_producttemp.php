@@ -27,7 +27,7 @@
         <span class="product-price"><?=$product["price"]?></span>
         <input id="product_price" name="product_price" value="<?=$product["price"]?>" type="hidden">
         <div class="goto-product-category-div">
-            <a href="<?php echo $gotoCatSubcat ?>" class="goto-product-category-btn"><?=  ucfirst($product_subcategory) ?></a>
+            <a href="<?php echo $gotoSubcat."?id=".$product_subcategory["id"] ?>" class="goto-product-category-btn"><?=  ucfirst($product_subcategory["name"]) ?></a>
             
             <?php // Product is already is cart ?>
                 <?php if (isset($_SESSION["cart_items"]) and in_array($product["id"], $_SESSION["cart_items"])): ?>
