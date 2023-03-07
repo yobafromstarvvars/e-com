@@ -27,7 +27,7 @@ if (isset($_SESSION['user_id'])) {
         </button>
     </form>
     
-    <?php if (isset($user)): // if user is logged in?>
+    <?php if (isset($_SESSION["user_id"])): // if user is logged in?>
 
         <div class="menu-icons">
         <a class="menu-cart-btn menu-btn" href="<?php echo $gotoCart ?>">
