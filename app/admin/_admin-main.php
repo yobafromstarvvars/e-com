@@ -1,48 +1,4 @@
-<style>
-#main{
-    margin:0;
-    padding:0;
-}
 
-body {
-  font-family: "Lato", sans-serif;
-}
-
-.sidenav {
-  height: 100%;
-  width: 160px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #818181;
-  display: block;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-</style>
 
 
 <?php
@@ -96,11 +52,15 @@ body {
 <!-- Print tables from db -->
 <?php foreach($tables as $table => $records): ?>
     <!-- Table Title -->
-    <form method='post'>
+    <form action="admin-add.php" method='post'>
     <h2 style="display:inline-block;"><?= ucfirst(strtolower($table)) ?></h2>
-            <a href="add-<?=$table?>.php" class="btn">
+        <button class="btn">
             <span class="material-icons">add_circle_outline</span>
-            </a>
+        </button>
+        <input name='table' value='<?=$table?>' type='hidden'>
+        <input name='table_id' value='<?=$record["id"]?>' type='hidden'>
+    </form>
+        <form method='post'>
         <?php 
             // Records count
             $sql = "SELECT COUNT(id) FROM {$table}";
@@ -109,14 +69,13 @@ body {
 
             // Print link to the table page + show table length
             if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-   
-            echo "<button style='display:inline; background: transparent; border:none;'>See all ({$count["COUNT(id)"]})</button>";
-            echo "<input name='table' value='$table' type='hidden'>";
-
+                echo "<button style='display:inline; background: transparent; border:none;'>See all ({$count["COUNT(id)"]})</button>";
+                echo "<input name='table' value='$table' type='hidden'>";
             } else { // Show elements count
                 echo $count["COUNT(id)"]." record(s)";
             }
         ?>
+        
     </form>
 
     <!-- Table -->
