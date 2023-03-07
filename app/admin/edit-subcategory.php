@@ -5,6 +5,7 @@
         <?php
             echo '<div id="main">';
                 require CHECK_ADMIN;
+                require_once "_admin-sidenav.php";
                 require "_edit-subcategory.php";    
             echo '</div>';
 

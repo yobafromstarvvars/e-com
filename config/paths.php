@@ -3,7 +3,7 @@
 
     // Initialize the php file
     define('ROOTPATH', dirname(__DIR__));
-    define('ROOTURL', '/root');
+    define('ROOTURL', '/music_house');
 
     define("DB_CONNECT", realpath(__DIR__."/db_connect.php"));
 

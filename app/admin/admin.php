@@ -4,8 +4,9 @@
     <body>
         <?php
             echo '<div id="main">';
-                require_once "_admin-sidenav.php";
+                
                 require CHECK_ADMIN;
+                require_once "_admin-sidenav.php";
                 require ADMIN_MAIN;      
             echo '</div>';
 
