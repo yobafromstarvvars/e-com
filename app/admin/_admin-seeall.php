@@ -48,28 +48,14 @@ body {
 <?php
     // connect to db
     $conn = require DB_CONNECT;
-   
-    // Show 200 records if one table is shown, 5 records each if all shown
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $sql_limit = 200;
-        $tables = array(
-            $_POST["table"] => "", 
-        );
-    } else {
-        $sql_limit = 5;
-        $tables = array(
-            "product" => "", 
-            "category" => "", 
-            "subcategory" => "", 
-            "type" => "", 
-            "brand" => "", 
-            "user" => "", 
-            "orders" => "",
-        );
-    }
-    // Get data for every table
+    $tables = array(
+        $_POST["table"] => "", 
+
+    );
+
+    // Get all data
     foreach($tables as $table => $data) {
-        $sql = "SELECT * FROM {$table} LIMIT {$sql_limit}";
+        $sql = "SELECT * FROM {$table} LIMIT 200";
         $result = mysqli_query($conn, $sql);
         $tables[$table] = mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
@@ -96,28 +82,20 @@ body {
 <!-- Print tables from db -->
 <?php foreach($tables as $table => $records): ?>
     <!-- Table Title -->
-    <form method='post'>
     <h2 style="display:inline-block;"><?= ucfirst(strtolower($table)) ?></h2>
+
             <a href="add-<?=$table?>.php" class="btn">
             <span class="material-icons">add_circle_outline</span>
             </a>
+
         <?php 
             // Records count
             $sql = "SELECT COUNT(id) FROM {$table}";
             if (! $result = mysqli_query($conn, $sql))  die("Query error: ". $mysqli->error);
             if (! $count = mysqli_fetch_assoc($result)) die("Fetch error: ". $mysqli->error);
-
-            // Print link to the table page + show table length
-            if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-   
-            echo "<button style='display:inline; background: transparent; border:none;'>See all ({$count["COUNT(id)"]})</button>";
-            echo "<input name='table' value='$table' type='hidden'>";
-
-            } else { // Show elements count
-                echo $count["COUNT(id)"]." record(s)";
-            }
+            echo $count["COUNT(id)"]." record(s)";
         ?>
-    </form>
+    
 
     <!-- Table -->
     <div class="table-responsive">

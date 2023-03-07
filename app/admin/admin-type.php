@@ -5,7 +5,7 @@
         <?php
             echo '<div id="main">';
                 require CHECK_ADMIN;
-require ADMIN_MAIN;      
+require "_admin-seeall.php";      
             echo '</div>';
 
             // load all js scripts. Order is set in links.php
