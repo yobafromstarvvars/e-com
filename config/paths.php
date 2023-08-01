@@ -2,13 +2,13 @@
 // CONTAINS CONSTANTS OF PATHS TO WEBSITE FILES (CSS, JS PATHS ARE IN links.php)
 
     // Initialize the php file
-    define('ROOTPATH', dirname(__DIR__));
-    define('ROOTURL', '/other/music_house');
+    define('ROOTPATH', dirname(__DIR__) . "/");
+    define('ROOTURL', '/other/music_house/');
 
     define("DB_CONNECT", realpath(__DIR__."/db_connect.php"));
 
     // For checking is_admin
-    define("CHECK_ADMIN",   realpath(ROOTPATH.'/app/admin/check-admin.php'));
+    define("CHECK_ADMIN",   realpath(ROOTPATH.'scripts/checkAdmin.php'));
 
     //common
     define ('SIDEPANEL',    realpath(ROOTPATH.'/common/sidepanel.php'));

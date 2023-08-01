@@ -25,16 +25,20 @@ body {
   text-decoration: none;
   font-size: 20px;
   color: #818181;
-  display: block;
+  display: flex;
   background-color:transparent;
   border:none;
+  justify-content: start;
+  align-items: center;
 }
 
-
-
-.sidenav a:hover, button:hover {
+.sidenav *:hover{
   color: #f1f1f1;
 }
+
+/* .sidenav span {
+  color: #818181;
+} */
 
 .main {
   margin-left: 160px; /* Same as the width of the sidenav */
@@ -50,16 +54,16 @@ body {
 
 <!-- Side nav -->
 <div class="sidenav">
-  <form action="admin.php" method="post">
+  <form action="admin.php" method="get">
+    <a href="<?=$gotoHome?>">
+      Music House
+    </a>
     <a href="<?=$gotoAdmin?>">Admin panel</a>
-    <a href="<?=$gotoHome?>">Main page</a>
     <hr>
-    <button name="table" value="orders">Orders</button>
-    <button name="table" value="user">Users</button>
-    <button name="table" value="product">Products</button>
-    <button name="table" value="category">Categories</button>
-    <button name="table" value="subcategory">Subcategories</button>
-    <button name="table" value="type">Types</button>
-    <button name="table" value="brand">Brands</button>
+    <?php
+      foreach ($tables as $table => $records) {
+          echo "<a href='#{$table}'>" . ucfirst(strtolower($table)) . " (" . count($records) . ")" . "</a>";
+      }
+    ?>
   </form>
 </div>

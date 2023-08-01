@@ -4,10 +4,9 @@
     <body>
         <?php
             echo '<div id="main">';
-                
                 require CHECK_ADMIN;
-                require_once "_admin-sidenav.php";
                 require ADMIN_MAIN;      
+                require_once "_admin-sidenav.php";
             echo '</div>';
 
             // load all js scripts. Order is set in links.php

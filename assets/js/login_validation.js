@@ -1,20 +1,4 @@
-// async function test() {
-//     let txt = isAvailable();
-//     console.log(txt);
-// }
-
-// async function isAvailable() {
-//     return fetch("/other/music_house/scripts/is_email_available.php?email=admin@adminc.com")
-//     .then(res => {
-//         if (res.ok) {
-//             return res.json()
-//         } else {
-//             console.log("Request not successful.")
-//         }
-//     })
-//     .then(data => {return data})
-//     .catch(error => console.log('error'))
-// }
+// LOGIN FORM VALIDATION WITH 'JUST VALIDATE' LIBRARY
 
 const validation = new JustValidate('#login-form');
 validation

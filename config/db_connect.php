@@ -1,9 +1,10 @@
 <?php
 
+session_start();
 $hostname = "localhost";
 $username = "root";
 $password = "";
-$database = "music_house";
+$database = DATABASE;
 
 $mysqli = new mysqli($hostname, $username, $password, $database);
 

@@ -1197,6 +1197,14 @@ change the style of the sidebar (less padding and a smaller font size) */
   width: 400px;
 }
 
+.w-5 {
+  width: 5%;
+}
+
+.admin-controls-cell {
+  width: 30px;
+}
+
 .admin-main .admin-table {
   width: 30%;
   border: 1px solid black;

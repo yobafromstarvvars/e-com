@@ -1,143 +1,163 @@
-
-
 <?php
-    // connect to db
-    $conn = require DB_CONNECT;
-   
-    // Show 200 records if one table is shown, 5 records each if all shown
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $sql_limit = 200;
-        $tables = array(
-            $_POST["table"] => "", 
-        );
-    } else {
-        $sql_limit = 5;
-        $tables = array(
-            "product" => "", 
-            "category" => "", 
-            "subcategory" => "", 
-            "type" => "", 
-            "brand" => "", 
-            "user" => "", 
-            "orders" => "",
-        );
-    }
-    // Get data for every table
-    foreach($tables as $table => $data) {
-        $sql = "SELECT * FROM {$table} LIMIT {$sql_limit}";
-        $result = mysqli_query($conn, $sql);
-        $tables[$table] = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    }
+
+// Import database
+require_once ROOTPATH . "/scripts/db.php";
+$db = new db(dbname: DATABASE);
+
+if (isset($_GET['table'])) {
+    // Create an array with the table name from GET
+    // in the same format when fetching from the DB
+    $res = [["table name" => $_GET['table']]];
+    // How many rows in a table
+    $sql_limit = 200;
+} else {
+    // Get a list of tables in the database
+    $sql = "SHOW TABLES";
+    $res = $db->query($sql)->fetchAll();
+    // How many rows in a table
+    $sql_limit = 5;
+}
+// Initialize empty to add tables later
+$tables = array();
+$columns = array();
+
+// Get info about all tables
+foreach ($res as $key => $value) {
+    $table_name = array_values($value)[0];
+    // Get fields from a table
+    $sql = "SHOW COLUMNS FROM {$table_name}";
+    $table_columns = $db->query($sql)->fetchAll();
+    // Get records from the table
+    $sql = "SELECT * FROM {$table_name}";
+    $records = $db->query($sql)->fetchAll();
+    // Save table info
+    $tables[$table_name] = $records;
+    $columns[$table_name] = $table_columns;
+}
+
+// Get fields from a table
+// $sql = "SHOW COLUMNS FROM category";
+// $accounts = $db->query($sql)->fetchAll();
+
+// // Get records from a table
+// $sql = "SELECT * FROM user";
+// $records = $db->query($sql)->fetchAll();
+
+
+// print_r($columns);
+// print_r($columns);
+// echo "<br>"."exiting program...";
+// exit;
 ?>
 
 
 
-<!-- Main content -->
-<div class="main">
-
-
-<!-- Print tables from db -->
-<?php foreach($tables as $table => $records): ?>
-    <!-- Table Title -->
-    <form method='post'>
-    <h2 style="display:inline-block;"><?= ucfirst(strtolower($table)) ?></h2>
-            <a href="add-<?=$table?>.php" class="btn">
-            <span class="material-icons">add_circle_outline</span>
-            </a>
-        <?php 
-            // Records count
-            $sql = "SELECT COUNT(id) FROM {$table}";
-            if (! $result = mysqli_query($conn, $sql))  die("Query error: ". $mysqli->error);
-            if (! $count = mysqli_fetch_assoc($result)) die("Fetch error: ". $mysqli->error);
-
-            // Print link to the table page + show table length
-            if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-   
-            echo "<button style='display:inline; background: transparent; border:none;'>See all ({$count["COUNT(id)"]})</button>";
-            echo "<input name='table' value='$table' type='hidden'>";
-
-            } else { // Show elements count
-                echo $count["COUNT(id)"]." record(s)";
-            }
-        ?>
-    </form>
-
-    <!-- Table -->
-    <div class="table-responsive">
-    <table class="table table-sm table-dark table-hover">
-    <thead>
-        <tr>
-            <th scope="col"></th>
-            <th scope="col"></th>
+<div class="main py-5">
+    <div class="container">
+    
         <?php
-            // Get column names from the table
-            $sql = "DESCRIBE {$table}";
-            $result = mysqli_query($conn, $sql);
-            $columns = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            // Print columns to the table
-            foreach($columns as $column) {
-                echo '<th scope="col">'.$column["Field"].'</th>';
-            }
-        ?>    
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach($records as $record): // Print rows in the table ?>
-            <tr>
-                <!-- Print edit and delete functions -->
-                <?php if (isset($record["is_admin"]) and $record["is_admin"]): // Disallow to delete admin user?>
-                    <th scope="row" style="width: 1%; white-space: nowrap;">
-                        <button class="btn" type="button" onclick="return alert('You cannot delete admin user through this admin panel.');">
-                            <span class="material-icons">clear</span>
-                        </button>
-                    </th>
-                <?php else:?>
-                    <form 
-                    action="_delete-record.php" 
-                    method="post" 
-                    onsubmit="return confirm('Do you really want to delete the record with id <?= $record['id'].' from '.$table?> table?');">
-                        <input type="hidden" name="id" value="<?=$record["id"]?>">
-                        <input type="hidden" name="table" value="<?=$table?>">
-                        <th scope="row" style="width: 1%; white-space: nowrap;">
-                            <button class="btn">
-                                <span class="material-icons">clear</span>
-                            </button>
-                        </th>
-                    </form> 
-                <?php endif; ?>
-                <th scope="row" style="width: 1%; white-space: nowrap; border-right: 1px solid white">
-                <form 
-                    action="edit-<?=$table?>.php" 
-                    method="post" >
-                    <button class="btn">
-                        <span class="material-icons">edit</span>
-                    </button>
-                    <input type="hidden" name="id" value="<?=$record["id"]?>">
-                    <input type="hidden" name="table" value="<?=$table?>">
-                </form>
-                </th>    
-                  
-                <!-- Print id field as heading of the row -->
-                <th scope="row"><?= $record["id"] ?></th>
-                <?php 
-                $is_id = True;
-                foreach($record as $field) {
-                if (! $is_id) { // Print fields in the row
-                    echo "<td>{$field}</td>";
-                }
-                $is_id = False;
-            }
+        // Display all tables from the database
+        foreach ($tables as $table => $records):
             ?>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-    </table>
-        </div>
-        
+            <!-- table -->
+            <div class="table-responsive">
+                <div class="d-flex">
+                    <form method="GET" action="admin_form.php" class="d-flex align-items-center">
+                        <h4 id="<?= $table ?>"><?= $table ?></h4>
+                        <input type="hidden" name="table" value="<?= $table ?>">
+                        <button class="btn text-center">
+                            <span class="material-icons">add_circle_outline</span>
+                        </button>
+                    </form>
+                    <form method="GET" action="admin.php" class="d-flex align-items-center">
+                        <?php
+                            // Print link to the table page + show table length
+                            if (!isset($_GET['table'])) {
+                                echo "<button class='btn text-light'>See all (" . count($records) . ")</button>";
+                                echo "<input type='hidden' name='table' value='{$table}'>";
+                            } else { // Show elements count
+                                echo count($records) . " record(s)";
+                            }
+                        ?>
+                    </form>
+                </div>
 
-<?php endforeach; ?>
+                <table class="table table-dark table-hover">
+                    <thead>
+                        <tr>
+                            <?php
+                            // Display column names
+                            echo "<th scope='row'></th>";
+                            echo "<th scope='row'></th>";
+                            for ($col = 0; $col < count($columns[$table]); $col++) {
+                                $col_name = $columns[$table][$col]['Field'];
+                                echo "<th scope='row'>{$col_name}</th>";
+                            }
+                            ?>
+                        </tr>
+                    </thead>
+                    <!-- Records -->
+                    <tbody>
+                        <?php
+                        // Print all records
+                        if (count($records) == 0) {
+                            echo
+                                "<tr>
+                                            <td class='text-center' colspan='" . (count($columns[$table]) + 2) . "'>Table is empty</td>
+                                        </tr>";
+                        } else
+                            foreach (array_slice($records, 0, $sql_limit) as $record => $fields):
+                                
+                                ?>
+                                <tr>
+                                    <?php
+                                    // Print delete & update buttons
+                                    echo
+                                        "<td class='admin-controls-cell'>
+                                                <form action='" . ROOTURL . "scripts/process_admin_form.php' method='post' class='p-0 m-0'>
+                                                    <button class='link-danger btn btn-link p-0' type='submit'>Delete</button>
+                                                    <input type='hidden' name='action' value='delete'>
+                                                    <input type='hidden' name='table' value='" . $table . "'>
+                                                    <input type='hidden' name='id' value='" . $fields['id'] . "'>
+                                                </form>
+                                            </td>
+                                            <td class='admin-controls-cell pe-3'>
+                                                <form action='" . ROOTURL . "app/admin/admin_form.php' method='get' class='p-0 m-0'>
+                                                    <button class='btn btn-link p-0' type='submit'>Update</button>
+                                                    <input type='hidden' name='table' value='" . $table . "'>
+                                                    <input type='hidden' name='id' value='" . $fields['id'] . "'>
+                                                </form>
+                                            </td>";
+
+                                    // Print all record columns
+                                    $is_col_id = True;
+                                    foreach ($fields as $field) {
+                                        if ($is_col_id) {
+                                            echo "<th scope='row' class='w-5'>{$field}</th>";
+                                            $is_col_id = False;
+                                        } else {
+                                            echo "<td>{$field}</td>";
+                                        }
+                                    }
+                                    ?>
+                                </tr>
+                            <?php
+                                // End records
+                            endforeach;
+                        ?>
+
+                    </tbody>
+                </table>
+            </div>
+        <?php
+            // End table
+        endforeach;
+        ?>
+    </div>
 
 
 
 
 </div>
+
+</html>
