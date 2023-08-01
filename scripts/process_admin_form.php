@@ -14,9 +14,17 @@ $db = new db(dbname:DATABASE);
 
 switch ($_POST['action']) {
     case 'delete':
+        // Get image path and delete that image
+        $sql = "SELECT image_link FROM {$_POST['table']} WHERE id={$_POST['id']}";
+        $result = $db->query($sql)->fetchArray();
+        // Don't delete the placeholder
+        if ($result['image_link'] != "/assets/img/brand/brand-placeholder.png") {
+            $image_path = realpath(ROOTPATH . $result['image_link']);
+            unlink($image_path);
+        }
+        // Delete the record from the database
         $sql = "DELETE FROM {$_POST['table']} WHERE id={$_POST['id']}";
         $db->query($sql);
-        header("Location: " . $gotoAdmin);
         break;
     case 'create':
         $table = "INSERT INTO {$_POST['table']}";
@@ -37,7 +45,7 @@ switch ($_POST['action']) {
         $values = "VALUES (" . implode(", ", array_values($_POST)) . ")";
         $sql = $table . " " . $fields . " " . $values;
         $db->query($sql);
-        header("Location: " . $gotoAdmin);
+        
         break;
     case 'update':
         print_r($_POST);
@@ -73,11 +81,11 @@ switch ($_POST['action']) {
         $sql = $table . " " . $set . " " . $where;
         print_r($sql);
         $db->query($sql);
-        header("Location: " . $gotoAdmin);
+        
         break;
     default:
-        header("Location: " . $gotoAdmin);
         break;
 }
+header("Location: " . $gotoAdmin);
 exit;
 // include_once __DIR__ . "/upload_image.php";
