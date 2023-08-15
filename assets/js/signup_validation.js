@@ -5,6 +5,7 @@ let script = document.currentScript;
 let fullUrl = script.src;
 let rootUrl = '/' + fullUrl.split('//')[1].split('/').slice(1, -3).join('/') + '/';
 
+
 const validation = new JustValidate('#signup-form');
 let passwordErrorMsg = "Password must contain minimum 12 characters, at least one letter and one number";
 validation

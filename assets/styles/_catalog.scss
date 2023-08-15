@@ -304,16 +304,16 @@
                 cursor: pointer;
                 font-size: 16px;
                 line-height: 3px;
+            }
+            
+            .product-star-rating {
+                margin-right: 5px;
 
-                .product-star-rating {
-                    margin-right: 5px;
+                span {
+                    color: $star-full;
+                    font-size: 25px;
 
-                    span {
-                        color: $star-full;
-                        font-size: 25px;
-                    }
                 }
-
                 .star-half {
                     color: $star-half;
                 }
@@ -321,7 +321,11 @@
                 .no-star {
                     color: $star-empty !important;
                 }
+
+                
             }
+
+                
 
             .product-info-specs {
                 margin-top: 1rem;

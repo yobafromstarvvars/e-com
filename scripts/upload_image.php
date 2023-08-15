@@ -5,11 +5,10 @@ Upload a file from a temporary storage to a
 permanent one in the project 'assets/img' folder.
 'Prefix' is inserted in the file name.
 */
-function uploadImage($prefix='', $files) {
+function uploadImage($files, $prefix='', $dir="uploads") {
     // Import database
     require_once ROOTPATH ."/scripts/db.php";
     if (!isset($db)) $db = new db(dbname:DATABASE);
-
     if ($files["filename"]["name"]) {
         $name = $files['filename']['name'];
         switch($files['filename']['type'])
@@ -22,20 +21,19 @@ function uploadImage($prefix='', $files) {
         if ($ext)
         {
             // Copy file to project folder
-            $newname = $prefix . "-" . date("Y-m-d-h-i-s").".".$ext;
+            $newname = $prefix . "-". date("Y-m-d-h-i-s").".".$ext;
+            // Check if directory where the file will be saved exists
+            $dir = file_exists($dir) ? $dir : "uploads";
             // Path to the project 'img' folder
-            $newpath = realpath(ROOTPATH."/assets/img/uploads").DIRECTORY_SEPARATOR;
+            $newpath = realpath(ROOTPATH . "assets/img/".$dir).DIRECTORY_SEPARATOR;
             // Image link that will be saved in the db
-            $image_path_db = "/assets/img/uploads/".$newname;
+            $image_path_db = "/assets/img/".$dir."/".$newname;
             if (move_uploaded_file($files['filename']['tmp_name'], $newpath.$newname)) {
                 return $image_path_db;
-                // if ($db->query->errno) {
-                //     unlink($newpath.$newname);
-                // }
             }
             else {
-                echo $newpath.$newname;
-                echo "returning uploaded image";
+                move_uploaded_file($files['filename']['tmp_name'], $newpath.$newname);
+                return "/assets/img/brand/brand-placeholder.png";
             }
         }
     } else {

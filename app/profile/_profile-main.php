@@ -23,11 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         {
             // Copy file to project folder
             $newname = "id".$user["id"]."-".date("Y-m-d-h-i-s").".".$ext;
-            $newpath = realpath(ROOTPATH."/assets/img/profiles").DIRECTORY_SEPARATOR;
+            $newpath = realpath(ROOTPATH . "assets/img/profiles").DIRECTORY_SEPARATOR;
             $image_path_db = "/assets/img/profiles/".$newname;
             if (move_uploaded_file($_FILES['filename']['tmp_name'], $newpath.$newname)) {
                 // Upload to database
-                $sql = "UPDATE user SET image_path = (?) WHERE id = {$user['id']}";
+                $sql = "UPDATE user SET image_link = (?) WHERE id = {$user['id']}";
                 
                 $stmt = $mysqli->stmt_init();
                 if (! $stmt->prepare($sql)) {
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <p>Successful upload. Refresh the page to see results</p>
     <?php endif; ?>
 
-    <img src='<?= ROOTURL.$user["image_path"]?>' style='width:100px; height:100px; border-radius:100px;'>
+    <img src='<?= ROOTURL.$user["image_link"]?>' style='width:100px; height:100px; border-radius:100px;'>
     <ul>
         <li><b>Name: </b><?= ucwords($user["name"])?></li>
         <li><b>Email: </b><?= strtolower($user["email"])?></li>

@@ -1,7 +1,7 @@
 <?php
 
 // Import database
-require_once ROOTPATH . "/scripts/db.php";
+require_once ROOTPATH . "scripts/db.php";
 $db = new db(dbname: DATABASE);
 
 if (isset($_GET['table'])) {

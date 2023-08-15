@@ -1,10 +1,8 @@
 <?php
-ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
     require "../../config/loadConfig.php";
 ?>
     <body>
         <?php
-        die("Success");
             // Fixed position settings are in _searchbar.scss
             echo '<div class="fixed-at-top">';
                 require SEARCHBAR;       
@@ -20,6 +18,7 @@ ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_report
 
             // load all js scripts. Order is set in links.php
             loadLinks($linkstoJS);
+            echo "<script defer src='".ROOTURL."assets/js/cart.js'></script>";
             
         ?>
         <script type="text/javascript">  
@@ -28,5 +27,6 @@ ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_report
             
         }  
 </script>  
+
     </body>
 </html>

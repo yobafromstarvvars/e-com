@@ -1,4 +1,4 @@
-<form class="path-row" action="<?php echo ROOTURL."/common/_path.php"?>" method="post">
+<form class="path-row" action="<?php echo ROOTURL . "common/_path.php"?>" method="post">
     <?php 
         $i = 0;
         $history_length = count($_SESSION["history"]);

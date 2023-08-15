@@ -16,18 +16,18 @@ $conn = require DB_CONNECT;
 
   // History bar
 $_SESSION["current_page_name"] = "catalog";
-if (! isset($_SESSION["history"][$product["name"]])) {
-    $_SESSION["history"][$product["name"]] = $_SERVER['REQUEST_URI'];
+if (! isset($_SESSION["history"][$product["title"]])) {
+    $_SESSION["history"][$product["title"]] = $_SERVER['REQUEST_URI'];
 }
 require PATH;
 ?>
 
 <div class="product-main">
     <section class="product-info">
-        <form action="<?= $addRemoveToCart ?>" method="post">
+       
             <div class="product-text-info">
                 
-                <h1 class="product-info-title"><?=ucwords($brand["name"])." ".$product["name"]?></h2>
+                <h1 class="product-info-title"><?=ucwords($brand["name"])." ".$product["title"]?></h2>
                 <!-- Star rating -->
                 <span class="product-star-rating"> 
                     <?php for ($i=0; $i < 5; $i++): ?>
@@ -43,26 +43,31 @@ require PATH;
                 <br>
                 <!-- Product price -->
                 <span style="font-size:1.8rem" class="product-price"><?=$product["price"]?></span>
-                <input id="product_price" name="product_price" value="<?=$product["price"]?>" type="hidden">
+                <input class="product_price" name="product_price" value="<?=$product["price"]?>" type="hidden">
                 <br>
                 <!-- Product cart buttons -->
                 <?php // Product is already is cart ?>
                     <?php if (isset($_SESSION["cart_items"]) and in_array($product["id"], $_SESSION["cart_items"])): ?>
-                        <button id="removeFromCart" name="remove_product_id" type="submit" value="<?= $product["id"] ?>" class="btn btn-danger add-to-cart-btn">
+                        <button  name="remove_product_id" type="submit" value="<?= $product["id"] ?>" class="btn btn-danger remove-from-cart-btn mt-3">
                             Remove from cart
                         </button>
                         
                     <?php else: // If product is not added yet ?>
-                        <button  id="addToCart" name="add_product_id" type="submit" value="<?= $product["id"] ?>" class="btn btn-warning add-to-cart-btn">
+                        <button name="add_product_id" type="submit" value="<?= $product["id"] ?>" class="btn btn-warning add-to-cart-btn mt-3">
                             Add to cart
                         </button>
                     <?php endif; ?>
                 <!-- Product description -->
-                <p class="product-info-description">
+                <p class="product-info-description pt-4">
                     <?=$product["description"]?>
                 </p>
             </div>
-            </form>
-            <div style="background-image: url('<?=ROOTURL.$product["image_link"]?>');" class="product-gallery"></div>
+           
+            <!-- style="background-image: url('<?=3//ROOTURL.$product["image_link"]?>');" class="me-4 img-fluid rounded rounded-4" -->
+            <div class="pe-4 overflow-hidden">
+                <img src="<?=ROOTURL.$product["image_link"]?>" alt="<?=$product["title"]?>"
+                    class="img-fluid object-fit-contain rounded">
+            </div>
+            <!-- product-gallery -->
     </section>
 </div>

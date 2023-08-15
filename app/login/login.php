@@ -40,7 +40,7 @@ $is_invalid = False;
             loadLinks($linkstoJS);
             // JustValidate library. It handles form validation
             echo '<script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>';
-            echo "<script defer src='". ROOTURL . "/assets/js/login_validation.js" ."'></script>";
+            echo "<script defer src='". ROOTURL . "assets/js/login_validation.js" ."'></script>";
         ?>
     </body>
 </html>

@@ -4,7 +4,7 @@ session_start();
 $hostname = "localhost";
 $username = "root";
 $password = "";
-$database = DATABASE;
+$database = "musichouse";
 
 $mysqli = new mysqli($hostname, $username, $password, $database);
 

@@ -4,7 +4,7 @@ session_start();
 
 require_once "../config/loadConfig.php";
 // Import database
-require_once ROOTPATH."/scripts/db.php";
+require_once ROOTPATH . "scripts/db.php";
 $db = new db(dbname:DATABASE);
 
 // Access denied if attributes are not specified
@@ -27,16 +27,18 @@ switch ($_POST['action']) {
         $db->query($sql);
         break;
     case 'create':
+        // Save the image in the project folder, add the image link to POST
+        include ROOTPATH . "scripts/upload_image.php";
+        $image_link = uploadImage($_FILES, $_POST['table'], $_POST['table']);
+        
+        if ($image_link) {
+            $_POST['image_link'] = $image_link;
+        }
+        // First part of the query
         $table = "INSERT INTO {$_POST['table']}";
         // Enclose all values in quotes
         foreach ($_POST as $attr => $value) {
             $_POST[$attr] = '"' . $value . '"';
-        }
-        // Save the image in the project folder, add the image link to POST
-        include ROOTPATH . "scripts/upload_image.php";
-        $image_link = uploadImage(trim($_POST['table'], '"'), $_FILES);
-        if ($image_link) {
-            $_POST['image_link'] = '"' . $image_link . '"';
         }
         // Remove unrelated to the db table attributes
         unset($_POST['table'], $_POST['action']);
@@ -44,6 +46,7 @@ switch ($_POST['action']) {
         $fields = "(" . implode(", ", array_keys($_POST)) . ")";
         $values = "VALUES (" . implode(", ", array_values($_POST)) . ")";
         $sql = $table . " " . $fields . " " . $values;
+        var_dump($sql);
         $db->query($sql);
         
         break;
@@ -54,7 +57,7 @@ switch ($_POST['action']) {
         $table = "UPDATE {$_POST['table']}";
         // Save the image in the project folder, add the image link to POST
         include ROOTPATH . "scripts/upload_image.php";
-        $image_link = uploadImage(trim($_POST['table'], '"'), $_FILES);
+        $image_link = uploadImage($_FILES, $_POST['table'], $_POST['id']);
         if ($image_link) {
             $_POST['image_link'] = $image_link;
         }

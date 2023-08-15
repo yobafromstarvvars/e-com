@@ -36,7 +36,7 @@ $sidenav-width: 71px;
             margin: 10px auto;
         }
 
-        & a {
+        & a, button {
             //padding: 8px 8px 8px 1.5rem;
             text-decoration: none;
             width: 100%;
@@ -80,7 +80,7 @@ $sidenav-width: 71px;
             color: $txt-disabled;
         }
 
-        & a {
+        & button {
             width: 50px;
             height:100%;
             //border: 1px solid $outline-button-b;
@@ -110,6 +110,12 @@ $sidenav-width: 71px;
             
         } 
     }
+}
+
+.language-img {
+    width: 5rem;
+    height: 5rem;
+
 }
 
 /* On smaller screens, where height is less than 450px, 

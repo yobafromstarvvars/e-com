@@ -1,15 +1,15 @@
 <?php
 
 session_start();
-
+header('Content-Type: application/json; charset=utf-8');
 
 if (! isset($_SESSION["cart_items"])) $_SESSION["cart_items"] = array();
 if (! isset($_SESSION["cart_sum"]))  $_SESSION["cart_sum"] = 0;
 
 // Add to cart
-if (isset($_POST["add_product_id"])) {
-    $_SESSION["cart_items"][$_POST["add_product_id"]] = $_POST["add_product_id"];
-    $_SESSION["cart_sum"] += $_POST["product_price"];
+if (isset($_GET["add_product_id"])) {
+    $_SESSION["cart_items"][$_GET["add_product_id"]] = $_GET["add_product_id"];
+    $_SESSION["cart_sum"] += $_GET["product_price"];
     // Add order to db
     /*
     if (count($_SESSION["cart_items"]) == 1){
@@ -30,10 +30,11 @@ if (isset($_POST["add_product_id"])) {
 }
 // Remove from cart
 else {
-    unset($_SESSION["cart_items"][$_POST["remove_product_id"]]);
-    $_SESSION["cart_sum"] -= $_POST["product_price"];
+    unset($_SESSION["cart_items"][$_GET["remove_product_id"]]);
+    $_SESSION["cart_sum"] -= $_GET["product_price"];
     // Make zero if it's a negative number
     $_SESSION["cart_sum"] = max($_SESSION["cart_sum"], 0);
+
     // Remove from orders db
     /*
     if (count($_SESSION["cart_items"]) == 0) {
@@ -52,10 +53,14 @@ else {
     }
     */
 }
+$data = [
+    "cart_sum" => $_SESSION["cart_sum"],
+    "cart_items" => $_SESSION["cart_items"]
+];
+echo json_encode($data);
 
-
-header('Location: ' . $_SERVER['HTTP_REFERER']);
-exit;
+// header('Location: ' . $_SERVER['HTTP_REFERER']);
+// exit;
 
 
 

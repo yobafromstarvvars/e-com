@@ -144,6 +144,14 @@ $product-card-width:180px;
     background:transparent;
 }
 
+& .remove-from-cart-btn{
+    border:none;
+    margin-left:auto;
+    margin:0;
+    padding:0;
+    background:transparent;
+}
+
                     & .goto-product-category-btn 
                     {margin-bottom: 0.8rem;
                     text-decoration: none;
@@ -206,7 +214,7 @@ $product-card-width:180px;
     font-size: 1.3rem;
         color: $txt-product-price;
     &::before {
-        content: "₽";
+        content: "$";//"₽";
         color: $txt-product-price;
     }
 

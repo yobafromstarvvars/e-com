@@ -25,7 +25,7 @@
 
             // load all js scripts. Order is set in links.php
             loadLinks($linkstoJS);
-            
+            echo "<script defer src='".ROOTURL."assets/js/product.js'></script>";
         ?>
     </body>
 </html>

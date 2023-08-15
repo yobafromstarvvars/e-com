@@ -1,5 +1,5 @@
 <?php
-    require ROOTPATH."/scripts/checkAdmin.php";
+    require ROOTPATH . "scripts/checkAdmin.php";
     // $tables = require dirname(__DIR__)."/scripts/get_all_tables.php";
 
     // Access denied if table is not specified
@@ -126,13 +126,14 @@
                                     // Identify how to show the foreign key record
                                     if (isset($foreign_record['title'])) $title = $foreign_record['title'];
                                     elseif (isset($foreign_record['login'])) $title = $foreign_record['login'];
+                                    elseif (isset($foreign_record['name'])) $title = $foreign_record['name'];
                                     else $title = $foreign_record['id'];
                                     echo "<option class='text-dark' value='{$foreign_record['id']}'>{$foreign_record['id']} - {$title}</option>";
                                 }
                                 echo 
                                 "
                                     </select>
-                                    <label class='text-secondary' for='floatingSelect'>".ucfirst(explode('_', $input_name, 2)[0])."</label>
+                                    <label class='text-secondary' for='floatingSelect'>".ucfirst(explode('_', $input_name, 2)[1])."</label>
                                 </div>";
                             }
                             // If the column is just a number

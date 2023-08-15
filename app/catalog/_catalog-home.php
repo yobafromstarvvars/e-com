@@ -29,7 +29,7 @@ while ($category = mysqli_fetch_assoc($categories)): ?>
     <section id="<?=strtolower($category["name"])?>" class="cat-category-section"> 
 
         <!-- Page header (category) -->
-        <div class="cat-category-heading" style="background-image: url('<?=ROOTURL.$category["image_link"]?>');">
+        <div class="cat-category-heading" style="background-image: url('<?=ROOTURL.$category["image_link"]?>')">
             <a href="<?php echo $gotoCategory."?id=".$category["id"]; ?>" class="cat-category-heading-title">
                 <?=ucfirst($category["name"])?>
             </a>

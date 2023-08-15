@@ -1,7 +1,8 @@
 <?php 
 
 session_start();
-require "../../config/loadConfig.php";
+require_once "../../config/loadConfig.php";
+$mysqli = require_once ROOTPATH . "config/db_connect.php";
 
 
 if ( ! preg_match("/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$/", $_POST["card_number"])) {
@@ -12,15 +13,13 @@ if ( ! preg_match("/[a-z]+\s[a-z]+/i", $_POST["card_holder"])) {
     die("Incorrect card holder name format: should contain two words in English");
 }
 
-if ($_POST["valid_thru"] < date('Y-m-d')) {
+if ($_POST["valid_thru"] < date('m-d-Y')) {
     die("The card has expired.");
 }
 
 if ( ! preg_match("/[0-9]{3}/", $_POST["CVV"])) {
     die("Incorret CVV format");
 }
-
-
 
 $sql = "INSERT INTO orders (id_user, status) VALUES (?, ?)";
 $stmt = $mysqli->stmt_init();

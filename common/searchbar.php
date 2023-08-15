@@ -34,7 +34,7 @@ if (isset($_SESSION['user_id'])) {
             <span class="material-icons" alt="Cart">local_mall</span>
         </a>
         <a class="menu-btn" href="<?php echo $gotoProfile ?>">
-            <img class="menu-account-picture" src="<?= ROOTURL.$user["image_path"] ?>" alt="Profile">
+            <img class="menu-account-picture" src="<?= ROOTURL.$user["image_link"] ?>" alt="Profile">
         </a>
         <a class="menu-btn" href="<?php echo $logout ?>">
         <span class="material-icons">logout</span>

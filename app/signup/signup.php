@@ -1,5 +1,5 @@
 <?php  
-    require "../../config/loadConfig.php";
+    require_once "../../config/loadConfig.php";
 ?>
     <body>
         <?php
@@ -20,7 +20,7 @@
             loadLinks($linkstoJS);
             // JustValidate library. It handles form validation
             echo '<script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>';
-            echo "<script defer src='". ROOTURL . "/assets/js/signup_validation.js" ."'></script>";
+            echo "<script defer src='". ROOTURL . "assets/js/signup_validation.js" ."'></script>";
         ?>
     </body>
 </html>

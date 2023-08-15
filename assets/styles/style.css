@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: "Falling Sky";
   src: url(../fonts/FallingSky-JKwK.otf) format("opentype");
@@ -209,7 +208,7 @@ html {
   width: 70%;
   margin: 10px auto;
 }
-#sidenav .sidenav-main a {
+#sidenav .sidenav-main a, #sidenav .sidenav-main button {
   text-decoration: none;
   width: 100%;
   color: inherit;
@@ -222,10 +221,10 @@ html {
   margin: 1px 0;
   line-height: 1em;
 }
-#sidenav .sidenav-main a:hover {
+#sidenav .sidenav-main a:hover, #sidenav .sidenav-main button:hover {
   background-color: #383838;
 }
-#sidenav .sidenav-main a span {
+#sidenav .sidenav-main a span, #sidenav .sidenav-main button span {
   font-size: 1.5rem;
   color: inherit;
 }
@@ -243,7 +242,7 @@ html {
 #sidenav .sidenav-footer * {
   color: #717171;
 }
-#sidenav .sidenav-footer a {
+#sidenav .sidenav-footer button {
   width: 50px;
   height: 100%;
   border-radius: 50%;
@@ -255,12 +254,17 @@ html {
   text-decoration: none;
   font-size: 0.9rem;
 }
-#sidenav .sidenav-footer a span {
+#sidenav .sidenav-footer button span {
   font-size: 1.9rem;
   transition: color 150ms;
 }
-#sidenav .sidenav-footer a:hover span {
+#sidenav .sidenav-footer button:hover span {
   color: #51abe4;
+}
+
+.language-img {
+  width: 5rem;
+  height: 5rem;
 }
 
 /* On smaller screens, where height is less than 450px, 
@@ -724,6 +728,13 @@ change the style of the sidebar (less padding and a smaller font size) */
   padding: 0;
   background: transparent;
 }
+.products .product-section .product-container .product-bottom-section .goto-product-category-div .remove-from-cart-btn {
+  border: none;
+  margin-left: auto;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
 .products .product-section .product-container .product-bottom-section .goto-product-category-div .goto-product-category-btn {
   margin-bottom: 0.8rem;
   text-decoration: none;
@@ -776,7 +787,7 @@ change the style of the sidebar (less padding and a smaller font size) */
   color: #ffa4a9;
 }
 .product-price::before {
-  content: "₽";
+  content: "$";
   color: #ffa4a9;
 }
 .product-price::first-letter {
@@ -1049,17 +1060,17 @@ change the style of the sidebar (less padding and a smaller font size) */
   font-size: 16px;
   line-height: 3px;
 }
-.product-main .product-info .product-text-info .product-star-rating-link .product-star-rating {
+.product-main .product-info .product-text-info .product-star-rating {
   margin-right: 5px;
 }
-.product-main .product-info .product-text-info .product-star-rating-link .product-star-rating span {
+.product-main .product-info .product-text-info .product-star-rating span {
   color: #FFF500;
   font-size: 25px;
 }
-.product-main .product-info .product-text-info .product-star-rating-link .star-half {
+.product-main .product-info .product-text-info .product-star-rating .star-half {
   color: #FFF500;
 }
-.product-main .product-info .product-text-info .product-star-rating-link .no-star {
+.product-main .product-info .product-text-info .product-star-rating .no-star {
   color: #B59F51 !important;
 }
 .product-main .product-info .product-text-info .product-info-specs {

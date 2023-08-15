@@ -18,6 +18,9 @@
 
             // load all js scripts. Order is set in links.php
             loadLinks($linkstoJS);
+            // JustValidate library. It handles form validation
+            echo '<script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>';
+            echo "<script defer src='". ROOTURL . "assets/js/checkout.js" ."'></script>";
         ?>
     </body>
 </html>
