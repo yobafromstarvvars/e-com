@@ -1,1 +1,1 @@
-[Превью сайта](http://skavrox3.beget.tech/)
+[Превью сайта](http://skavro28.beget.tech/)
